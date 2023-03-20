@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltiaVarlik.UI", "UltiaVarlik.UI\UltiaVarlik.UI.csproj", "{5F0987EE-C86F-4487-89FD-7E78890EFDBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltiaVarlik.DTO", "UltiaVarlik.DTO\UltiaVarlik.DTO.csproj", "{DDEA461A-DE3D-4AB9-BA78-CDBB75B27D8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltiaVarlik.DAL", "UltiaVarlik.DAL\UltiaVarlik.DAL.csproj", "{44F76C54-47D7-4735-974E-CCA08DC357EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltiaVarlik.Provider", "UltiaVarlik.Provider\UltiaVarlik.Provider.csproj", "{9263097A-0470-423A-B11A-307FF902843C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F0987EE-C86F-4487-89FD-7E78890EFDBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0987EE-C86F-4487-89FD-7E78890EFDBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0987EE-C86F-4487-89FD-7E78890EFDBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0987EE-C86F-4487-89FD-7E78890EFDBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEA461A-DE3D-4AB9-BA78-CDBB75B27D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEA461A-DE3D-4AB9-BA78-CDBB75B27D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEA461A-DE3D-4AB9-BA78-CDBB75B27D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEA461A-DE3D-4AB9-BA78-CDBB75B27D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F76C54-47D7-4735-974E-CCA08DC357EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F76C54-47D7-4735-974E-CCA08DC357EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F76C54-47D7-4735-974E-CCA08DC357EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F76C54-47D7-4735-974E-CCA08DC357EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9263097A-0470-423A-B11A-307FF902843C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9263097A-0470-423A-B11A-307FF902843C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9263097A-0470-423A-B11A-307FF902843C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9263097A-0470-423A-B11A-307FF902843C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98E48ADA-4FA7-410C-95D6-51189EC1A821}
+	EndGlobalSection
+EndGlobal
