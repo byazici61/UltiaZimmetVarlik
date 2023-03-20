@@ -16,7 +16,7 @@ namespace UltiaVarlik.DAL.DAL
         public Personel VeriCek(string mail,string sifre)
         {
             Personel GirisYapanKullanici = null;
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"SELECT p.PersonelID,p.PersonelAdi,p.PersonelSoyadi, rl.RolAdi, se.SirketEkipAdi  FROM Personel p inner join Rol rl on rl.RolID = p.RolID inner join SirketEkip se on p.SirketEkipID = se.SirketEkipID where p.EMail = '{mail}' and p.PersonelSifresi = '{sifre}'");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"SELECT p.PersonelID,p.PersonelAdi,p.PersonelSoyadi, rl.RolAdi, se.SirketEkipAdi, se.SirketEkipID  FROM Personel p inner join Rol rl on rl.RolID = p.RolID inner join SirketEkip se on p.SirketEkipID = se.SirketEkipID where p.EMail = '{mail}' and p.PersonelSifresi = '{sifre}'");
 
             SqlDataReader rdr =con.ExcuteRedaer();
             if (rdr.HasRows)
@@ -31,7 +31,7 @@ namespace UltiaVarlik.DAL.DAL
                         PersonelAdi = rdr.GetString(1),
                         PersonelSoyadi = rdr.GetString(2),
                         Rol = new Rol() { RolAdi = rdr.GetString(3) },
-                        SirketEkip = new SirketEkip { SirketEkipAdi = rdr.GetString(4) }
+                        SirketEkip = new SirketEkip { SirketEkipAdi = rdr.GetString(4),SirketEkipID=rdr.GetInt32(5) }
 
                     };
                     

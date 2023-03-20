@@ -62,7 +62,7 @@ namespace UltiaVarlik.UI
         {
             lvTablo.Items.Clear();
             PersonelZimmetDAL personelZimmet = new PersonelZimmetDAL();
-            List<PersonelZimmet> personelZimmetler = personelZimmet.VeriCek(2);
+            List<PersonelZimmet> personelZimmetler = personelZimmet.VeriCek(girisYapanKullanici.PersonelID);
             foreach (PersonelZimmet item in personelZimmetler)
             {
                 ListViewItem lvi = new ListViewItem(item.KullaniciZimmetID.ToString());
@@ -84,7 +84,7 @@ namespace UltiaVarlik.UI
         {
             lvTablo.Items.Clear();
             SirketEkipZimmetDAL sirketEkipZimmet = new SirketEkipZimmetDAL();
-            List<SirketEkipZimmet> sirketEkipZimmetler = sirketEkipZimmet.VeriCek(2);
+            List<SirketEkipZimmet> sirketEkipZimmetler = sirketEkipZimmet.VeriCek(girisYapanKullanici.SirketEkip.SirketEkipID);
             foreach (SirketEkipZimmet item in sirketEkipZimmetler)
             {
                 ListViewItem lvi = new ListViewItem(item.SirketEkipZimmetID.ToString());
