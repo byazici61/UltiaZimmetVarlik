@@ -31,6 +31,10 @@ namespace UltiaVarlik.UI
                 frmGenel.Show();
                 this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Lütfen Mail ve Şifrenizi eksiksiz ve Doğru Giriniz--");
+            }
             
 
 
