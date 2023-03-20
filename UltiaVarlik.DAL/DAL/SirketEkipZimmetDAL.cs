@@ -16,7 +16,7 @@ namespace UltiaVarlik.DAL.DAL
 
         public List<SirketEkipZimmet> VeriCek(int id)
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"select sez.SirketEkipID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model from SirketEkipZimmet sez inner join SirketEkip se on sez.SirketEkipID = se.SirketEkipID inner join Zimmet z on sez.ZimmetID = z.ZimmedID inner join VarlikDepo vd on z.VarlikDepoID = vd.VarlikDepoID inner join Varlik v on vd.VarlikID = v.VarlikID inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner join Fiyat fy on fy.VarlikID = v.VarlikID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID where sez.SirketEkipID = { id}");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"select sez.SirketEkipID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model from SirketEkipZimmet sez inner join SirketEkip se on sez.SirketEkipID = se.SirketEkipID inner join Zimmet z on sez.ZimmetID = z.ZimmedID inner join VarlikDepo vd on z.VarlikDepoID = vd.VarlikDepoID inner join Varlik v on vd.VarlikID = v.VarlikID inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner join Fiyat fy on fy.VarlikID = v.VarlikID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID where sez.SirketEkipID = {id} and sez.AktifMi=1");
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
             {

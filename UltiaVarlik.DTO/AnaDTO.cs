@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    public class Marka : AnaDTO
+    public abstract class  AnaDTO
     {
-        public int MarkaID { get; set; }
-        public string MarkaAdi { get; set; }
 
+        public bool? AktifMi { get; set; }
     }
 }

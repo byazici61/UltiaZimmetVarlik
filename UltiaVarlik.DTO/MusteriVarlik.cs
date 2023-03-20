@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    class MusteriVarlik
+    class MusteriVarlik : AnaDTO
     {
         public int MusteriVarlikID { get; set; }
         public  Musteri Musteri { get; set; }

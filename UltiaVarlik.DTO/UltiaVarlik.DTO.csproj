@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnaDTO.cs" />
     <Compile Include="Birim.cs" />
     <Compile Include="Depo.cs" />
     <Compile Include="Duyuru.cs" />

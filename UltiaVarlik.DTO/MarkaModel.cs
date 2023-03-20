@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    public class MarkaModel
+    public class MarkaModel : AnaDTO
     {
         public int MarkaModelID { get; set; }
         public string MarkaModeAdi { get; set; }

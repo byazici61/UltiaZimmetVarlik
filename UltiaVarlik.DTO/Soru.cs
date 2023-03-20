@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    public class Soru
+    public class Soru : AnaDTO
     {
         public int SoruID { get; set; }
         public string SoruMetni { get; set; }

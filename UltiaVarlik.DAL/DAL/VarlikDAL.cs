@@ -15,7 +15,7 @@ namespace UltiaVarlik.DAL
         List<Varlik> Varliklar;
         public List<Varlik> VeriCek()
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select v.VarlikID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as[Ürün Tipi], mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model , fy.ParaMiktari as Fiyat from Varlik v inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID inner Join Fiyat fy on fy.VarlikID = v.VarlikID");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select v.VarlikID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as[Ürün Tipi], mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model , fy.ParaMiktari as Fiyat from Varlik v inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID inner Join Fiyat fy on fy.VarlikID = v.VarlikID where v.AktifMi=1");
             //con.BaglantiAc();
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)

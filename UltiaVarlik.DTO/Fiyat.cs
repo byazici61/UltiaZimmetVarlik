@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    public class Fiyat
+    public class Fiyat : AnaDTO
     {
         public int FiyatID { get; set; }
         public Varlik Varlik { get; set; }

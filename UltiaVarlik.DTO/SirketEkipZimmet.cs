@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltiaVarlik.DTO
 {
-    public class SirketEkipZimmet
+    public class SirketEkipZimmet : AnaDTO
     {
         public int SirketEkipZimmetID { get; set; }
         public SirketEkip SirketEkip { get; set; }
