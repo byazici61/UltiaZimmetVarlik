@@ -33,7 +33,7 @@ namespace UltiaVarlik.UI
             }
             else
             {
-                MessageBox.Show("Lütfen Mail ve Şifrenizi eksiksiz ve Doğru Giriniz--");
+                MessageBox.Show("Lütfen Mail ve Şifrenizi eksiksiz ve Doğru Girini");
             }
             
 
