@@ -56,7 +56,7 @@ namespace UltiaVarlik.UI
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1153, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,13 +95,13 @@ namespace UltiaVarlik.UI
             // rapor1ToolStripMenuItem
             // 
             this.rapor1ToolStripMenuItem.Name = "rapor1ToolStripMenuItem";
-            this.rapor1ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.rapor1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rapor1ToolStripMenuItem.Text = "Rapor1";
             // 
             // rapor2ToolStripMenuItem
             // 
             this.rapor2ToolStripMenuItem.Name = "rapor2ToolStripMenuItem";
-            this.rapor2ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.rapor2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rapor2ToolStripMenuItem.Text = "Rapor2";
             // 
             // duyurularToolStripMenuItem
@@ -126,7 +126,7 @@ namespace UltiaVarlik.UI
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1,
             this.btnCikisYap});
-            this.toolStrip1.Location = new System.Drawing.Point(527, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(801, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(352, 25);
             this.toolStrip1.TabIndex = 1;
@@ -154,7 +154,7 @@ namespace UltiaVarlik.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UltiaVarlik.UI.Properties.Resources.ultia;
-            this.ClientSize = new System.Drawing.Size(879, 450);
+            this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
