@@ -13,17 +13,36 @@ namespace UltiaVarlik.DAL.DAL
 {
     public class PersonelGirisDAL 
     {
-        public GeriDonusum VeriCek(string mail,string sifre)
+        public Personel VeriCek(string mail,string sifre)
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"select COUNT(*) from Personel where EMail = '{mail}' and PersonelSifresi = '{sifre}'");
-            
-            int sonuc =Convert.ToInt32(con.ExecutScalar());
-            return new GeriDonusum()
+            Personel GirisYapanKullanici = null;
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"SELECT p.PersonelID,p.PersonelAdi,p.PersonelSoyadi, rl.RolAdi, se.SirketEkipAdi  FROM Personel p inner join Rol rl on rl.RolID = p.RolID inner join SirketEkip se on p.SirketEkipID = se.SirketEkipID where p.EMail = '{mail}' and p.PersonelSifresi = '{sifre}'");
+
+            SqlDataReader rdr =con.ExcuteRedaer();
+            if (rdr.HasRows)
             {
-                GeriDonusMesaji = sonuc > 0 ? "Başarıyla Giriş Yapıldı." : "Kullanıcı Adı veya Parola Hatalı.",
-                GeriDonus = sonuc,
-                GeriDonusTipi = sonuc > 0,
-            };
+                
+
+                while (rdr.Read())
+                {
+                    GirisYapanKullanici = new Personel()
+                    {
+                        PersonelID = rdr.GetInt32(0),
+                        PersonelAdi = rdr.GetString(1),
+                        PersonelSoyadi = rdr.GetString(2),
+                        Rol = new Rol() { RolAdi = rdr.GetString(3) },
+                        SirketEkip = new SirketEkip { SirketEkipAdi = rdr.GetString(4) }
+
+                    };
+                    
+                }
+                return GirisYapanKullanici;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

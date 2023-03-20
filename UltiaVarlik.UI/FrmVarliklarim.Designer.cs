@@ -40,13 +40,13 @@ namespace UltiaVarlik.UI
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVarliklarim
@@ -78,6 +78,7 @@ namespace UltiaVarlik.UI
             // lblTumVarliklar
             // 
             this.lblTumVarliklar.AutoSize = true;
+            this.lblTumVarliklar.Enabled = false;
             this.lblTumVarliklar.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblTumVarliklar.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTumVarliklar.Location = new System.Drawing.Point(657, 88);
@@ -146,16 +147,6 @@ namespace UltiaVarlik.UI
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UltiaVarlik.UI.Properties.Resources.ultia;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Blue;
@@ -165,16 +156,6 @@ namespace UltiaVarlik.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(188, 43);
             this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(6, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -186,6 +167,26 @@ namespace UltiaVarlik.UI
             this.label1.Size = new System.Drawing.Size(90, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "Yeni Kayıt";
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(6, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 37);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UltiaVarlik.UI.Properties.Resources.ultia;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 77);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmVarliklarim
             // 
@@ -201,11 +202,11 @@ namespace UltiaVarlik.UI
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVarliklarim";
             this.Text = "Varlıklarım";
-            this.Load += new System.EventHandler(this.lblEkipVarliklar_Load);
+            this.Load += new System.EventHandler(this.FrmVarliklarim_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

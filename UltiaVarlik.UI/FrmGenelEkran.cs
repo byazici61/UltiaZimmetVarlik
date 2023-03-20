@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UltiaVarlik.DTO;
 using UltiaVarlik.UI.EkstraEkranlar;
 
 namespace UltiaVarlik.UI
@@ -19,12 +20,19 @@ namespace UltiaVarlik.UI
         FrmVarliklarim frmVarlik;
         FrmDuyurular frmDuyuru;
         FrmSorular frmSoru;
+        private Personel girisYapanKullanici;
+
         public FrmGenelEkran()
         {
             InitializeComponent();
         }
 
- 
+        public FrmGenelEkran(Personel girisYapanKullanici) : this()
+        {
+            this.girisYapanKullanici = girisYapanKullanici;
+            
+        }
+
         private void varliklariGuncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmVarGun = new FrmVarlikGuncelle();
@@ -66,13 +74,18 @@ namespace UltiaVarlik.UI
 
         private void varliklariGosterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVarlik = new FrmVarliklarim();
+            frmVarlik = new FrmVarliklarim(girisYapanKullanici);
             frmVarlik.MdiParent = this;
             frmVarlik.Show();
             //frmVarGun.WindowState = FormWindowState.Minimized;
             //frmDuyuru.WindowState = FormWindowState.Minimized;
             //frmSoru.WindowState = FormWindowState.Minimized;
 
+        }
+
+        private void FrmGenelEkran_Load(object sender, EventArgs e)
+        {
+            tstxtPersonelAdSoyad.Text = girisYapanKullanici.PersonelAdi + " " + girisYapanKullanici.PersonelSoyadi + " Ekip : " + girisYapanKullanici.SirketEkip.SirketEkipAdi;
         }
     }
 }

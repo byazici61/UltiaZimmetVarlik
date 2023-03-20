@@ -15,14 +15,25 @@ namespace UltiaVarlik.UI
 {
     public partial class FrmVarliklarim : Form
     {
+        private Personel girisYapanKullanici;
+
         public FrmVarliklarim()
         {
             InitializeComponent();
         }
 
-        private void lblEkipVarliklar_Load(object sender, EventArgs e)
+        public FrmVarliklarim(Personel girisYapanKullanici) :this()
         {
+            this.girisYapanKullanici = girisYapanKullanici;
+            
+        }
 
+        private void FrmVarliklarim_Load(object sender, EventArgs e)
+        {
+            if (girisYapanKullanici.Rol.RolAdi== "Power User"|| girisYapanKullanici.Rol.RolAdi == "Depo Admin")
+            {
+                lblTumVarliklar.Enabled = true;
+            }
         }
 
         private void lblTumVarliklar_Click(object sender, EventArgs e)
@@ -91,5 +102,7 @@ namespace UltiaVarlik.UI
             }
 
         }
+
+
     }
 }
