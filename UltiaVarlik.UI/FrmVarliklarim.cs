@@ -103,6 +103,14 @@ namespace UltiaVarlik.UI
 
         }
 
+        private void lvTablo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

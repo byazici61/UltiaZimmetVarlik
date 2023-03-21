@@ -98,6 +98,8 @@ namespace UltiaVarlik.UI
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.lvTablo.FullRowSelect = true;
+            this.lvTablo.GridLines = true;
             this.lvTablo.HideSelection = false;
             this.lvTablo.Location = new System.Drawing.Point(222, 138);
             this.lvTablo.Name = "lvTablo";
@@ -105,6 +107,7 @@ namespace UltiaVarlik.UI
             this.lvTablo.TabIndex = 2;
             this.lvTablo.UseCompatibleStateImageBehavior = false;
             this.lvTablo.View = System.Windows.Forms.View.Details;
+            this.lvTablo.SelectedIndexChanged += new System.EventHandler(this.lvTablo_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -146,6 +149,7 @@ namespace UltiaVarlik.UI
             this.groupBox1.Size = new System.Drawing.Size(200, 483);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // panel1
             // 
