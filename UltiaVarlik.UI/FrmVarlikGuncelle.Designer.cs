@@ -462,6 +462,7 @@ namespace UltiaVarlik.UI
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmVarlikGuncelle";
             this.Text = "Varlik Güncelleme";
+            this.Load += new System.EventHandler(this.FrmVarlikGuncelle_Load);
             this.pbBilgiler.ResumeLayout(false);
             this.pbBilgiler.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
 
 namespace UltiaVarlik.DAL.ArayuzDeposu
 {
-    public interface IVeriSil<T> where T : class
+    public interface IVeriSil<T> where T : AnaDTO
     {
 
         GeriDonusum VeriSil(object SilinecekVeriID);

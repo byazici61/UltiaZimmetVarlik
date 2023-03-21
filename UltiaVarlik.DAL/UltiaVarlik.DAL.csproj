@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,9 +47,12 @@
     <Compile Include="ArayuzDeposu\IVeriCek.cs" />
     <Compile Include="ArayuzDeposu\IVeriEkle.cs" />
     <Compile Include="ArayuzDeposu\IVeriSil.cs" />
+    <Compile Include="DAL\FiyatDAL.cs" />
+    <Compile Include="DAL\ParaBirimiDAL.cs" />
     <Compile Include="DAL\PersonelGirisDAL.cs" />
     <Compile Include="DAL\PersonelZimmetDAL.cs" />
     <Compile Include="DAL\SirketEkipZimmetDAL.cs" />
+    <Compile Include="DAL\VarlikGrubuDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAL\VarlikDAL.cs" />
   </ItemGroup>

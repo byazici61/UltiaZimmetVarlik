@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UltiaVarlik.DAL.DAL;
 
 namespace UltiaVarlik.UI
 {
@@ -15,6 +16,20 @@ namespace UltiaVarlik.UI
         public FrmVarlikGuncelle()
         {
             InitializeComponent();
+        }
+
+        private void FrmVarlikGuncelle_Load(object sender, EventArgs e)
+        {
+            ComboBoxlariDoldur();
+            
+        }
+
+        private void ComboBoxlariDoldur()
+        {
+            VarlikGrubuDAL varlikGrubu = new VarlikGrubuDAL();
+            cmbUrunTipi.Items.AddRange(varlikGrubu.VeriCek().ToArray());
+            ParaBirimiDAL paraBirimi = new ParaBirimiDAL();
+            cmbMaliyetParaBirimi.Items.AddRange(paraBirimi.VeriCek().ToArray());
         }
     }
 }

@@ -44,9 +44,6 @@ namespace UltiaVarlik.DAL.DAL
 
             }
 
-
-
-
             return Zimmetler;
         }
     }

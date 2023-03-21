@@ -36,12 +36,9 @@ namespace UltiaVarlik.DAL.DAL
                     };
                     
                 }
-                return GirisYapanKullanici;
+                
             }
-            else
-            {
-                return null;
-            }
+            return GirisYapanKullanici;
 
         }
     }

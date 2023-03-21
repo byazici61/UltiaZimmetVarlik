@@ -11,5 +11,9 @@ namespace UltiaVarlik.DTO
         public int VarlikGrubuID { get; set; }
         public string VarlikGrubuAdi { get; set; }
 
+        public override string ToString()
+        {
+            return VarlikGrubuAdi;
+        }
     }
 }
