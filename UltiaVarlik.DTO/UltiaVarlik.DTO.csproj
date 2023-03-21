@@ -47,6 +47,7 @@
     <Compile Include="Duyuru.cs" />
     <Compile Include="Fiyat.cs" />
     <Compile Include="GeriDonusTipi\GeriDonusum.cs" />
+    <Compile Include="VarlikDurumu.cs" />
     <Compile Include="Musteri.cs" />
     <Compile Include="MusteriVarlik.cs" />
     <Compile Include="Personel.cs" />

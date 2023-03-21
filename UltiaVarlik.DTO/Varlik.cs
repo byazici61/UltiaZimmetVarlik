@@ -11,6 +11,7 @@ namespace UltiaVarlik.DTO
         public int VarlikID { get; set; }
         public Guid? Barkot { get; set; }
         public double Fiyat { get; set; }
+        public VarlikDurumu VarlikDurumu { get; set; }
         public VarlikGrubu VarlikGrubu { get; set; }
         public MarkaModel MarkaModel { get; set; }
         public bool GarantiliMi { get; set; }

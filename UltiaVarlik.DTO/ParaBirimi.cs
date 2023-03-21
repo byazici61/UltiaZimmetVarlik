@@ -10,5 +10,10 @@ namespace UltiaVarlik.DTO
     {
         public int ParaBirimiID { get; set; }
         public string ParaBirimiAdi { get; set; }
+
+        public override string ToString()
+        {
+            return ParaBirimiAdi;
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace UltiaVarlik.UI
         {
             this.pbBilgiler = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAciklama = new System.Windows.Forms.TextBox();
             this.txtFiyat = new System.Windows.Forms.TextBox();
             this.txtMaliyet = new System.Windows.Forms.TextBox();
             this.dtpEmekli = new System.Windows.Forms.DateTimePicker();
@@ -73,7 +73,7 @@ namespace UltiaVarlik.UI
             // 
             this.pbBilgiler.BackColor = System.Drawing.SystemColors.Control;
             this.pbBilgiler.Controls.Add(this.button1);
-            this.pbBilgiler.Controls.Add(this.textBox4);
+            this.pbBilgiler.Controls.Add(this.txtAciklama);
             this.pbBilgiler.Controls.Add(this.txtFiyat);
             this.pbBilgiler.Controls.Add(this.txtMaliyet);
             this.pbBilgiler.Controls.Add(this.dtpEmekli);
@@ -122,14 +122,14 @@ namespace UltiaVarlik.UI
             this.button1.Text = "Kaydet";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtAciklama
             // 
-            this.textBox4.Location = new System.Drawing.Point(29, 346);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(474, 119);
-            this.textBox4.TabIndex = 10;
+            this.txtAciklama.Location = new System.Drawing.Point(29, 346);
+            this.txtAciklama.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtAciklama.Multiline = true;
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.Size = new System.Drawing.Size(474, 119);
+            this.txtAciklama.TabIndex = 10;
             // 
             // txtFiyat
             // 
@@ -149,6 +149,7 @@ namespace UltiaVarlik.UI
             // 
             // dtpEmekli
             // 
+            this.dtpEmekli.Enabled = false;
             this.dtpEmekli.Location = new System.Drawing.Point(496, 102);
             this.dtpEmekli.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpEmekli.Name = "dtpEmekli";
@@ -332,6 +333,9 @@ namespace UltiaVarlik.UI
             // cmbGaranti
             // 
             this.cmbGaranti.FormattingEnabled = true;
+            this.cmbGaranti.Items.AddRange(new object[] {
+            "Hayır",
+            "Evet"});
             this.cmbGaranti.Location = new System.Drawing.Point(29, 301);
             this.cmbGaranti.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbGaranti.Name = "cmbGaranti";
@@ -364,6 +368,7 @@ namespace UltiaVarlik.UI
             this.cmbMarka.Name = "cmbMarka";
             this.cmbMarka.Size = new System.Drawing.Size(304, 24);
             this.cmbMarka.TabIndex = 2;
+            this.cmbMarka.SelectedIndexChanged += new System.EventHandler(this.cmbMarka_SelectedIndexChanged);
             // 
             // cmbUrunTipi
             // 
@@ -487,7 +492,7 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ComboBox cmbUrunTipi;
         private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.TextBox txtFiyat;
         private System.Windows.Forms.TextBox txtMaliyet;
         private System.Windows.Forms.DateTimePicker dtpEmekli;

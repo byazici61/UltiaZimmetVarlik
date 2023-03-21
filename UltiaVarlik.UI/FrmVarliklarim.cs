@@ -105,7 +105,13 @@ namespace UltiaVarlik.UI
 
         private void lvTablo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+      
+                FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle();
+                frmVarlikGuncelle.Show();
+
+            
+           
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

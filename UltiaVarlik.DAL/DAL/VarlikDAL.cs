@@ -10,7 +10,7 @@ using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL
 {
-    public class VarlikDAL : IVeriCek<Varlik>
+    public class VarlikDAL : IVeriCek<Varlik>, IVeriCekID<Varlik>
     {
         List<Varlik> Varliklar;
         public List<Varlik> VeriCek()
@@ -49,6 +49,51 @@ namespace UltiaVarlik.DAL
             return Varliklar;
                
            
+        }
+
+        public List<Varlik> VeriCek(int id)
+        {
+
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"select v.VarlikID as [Kayıt Numarası], v.Barkod, b.BirimID as [Birim ID], b.BirimAdi as [Birim Adi],  vg.VarlikGrubuID as [Ürün Tipi ID], vg.VarlikGrubuAdi as [Ürün Tipi], mm1.MarkaModelID as [Marka ID], mm1.MarkaModelAdi as Marka, mm.MarkaModelID as [Model ID], mm.MarkaModelAdi as Model, IIf(v.GarantiliMİ = 1, 'Var', 'Yok') as [Garanti Durumu], v.CikisTarihi as [Giris Tarihi], v.Aciklama, v.MaliyetFiyati as [Urun Maliyeti], pb.ParaBirimiID as [Maaliyet Para Birimi ID], pb.ParaBirimAdi as [Maliyet Para Birimi],v.Miktar from Varlik v inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID left join Birim b on v.BirimID = b.BirimID inner join ParaBirimi pb on v.MaliyetParaBirimiID = pb.ParaBirimiID inner join Fiyat fy on fy.VarlikID = v.VarlikID inner join ParaBirimi pb1 on fy.ParaBirimiID = pb1.ParaBirimiID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID where v.VarlikID = {id}");
+        
+            SqlDataReader rdr = con.ExcuteRedaer();
+            if (rdr.HasRows)
+            {
+                Varliklar = new List<Varlik>();
+
+                while (rdr.Read())
+                {
+                    Varlik varlik = new Varlik();
+                    varlik.VarlikID = rdr.GetInt32(0);
+                    try
+                    {
+                        varlik.Barkot = rdr.GetGuid(1);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        varlik.Barkot = Guid.Empty;
+                        varlik.Birim = new Birim() { BirimID = rdr.GetInt32(2), BirimAdi = rdr.GetString(3) };
+                        varlik.Miktar = rdr.GetInt32(16);
+                    }
+                    
+                    varlik.VarlikGrubu = new VarlikGrubu() { VarlikGrubuID = rdr.GetInt32(4), VarlikGrubuAdi = rdr.GetString(5) };
+                    varlik.MarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(8), MarkaModeAdi = rdr.GetString(9), UstMarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(6), MarkaModeAdi = rdr.GetString(7) } };
+                    varlik.GarantiliMi = (rdr.GetString(10) == "Var" ? true : false);
+                    varlik.CikisTarihi = rdr.GetDateTime(11);
+                    varlik.Aciklama = rdr.GetString(12);
+                    varlik.MaliyetFiyati = Convert.ToDouble(rdr.GetDecimal(13));
+                    varlik.MaaliyetParaBirimi = new ParaBirimi() { ParaBirimiID = rdr.GetInt32(14), ParaBirimiAdi = rdr.GetString(15) };
+
+                    Varliklar.Add(varlik);
+
+                }
+
+            }
+            con.BaglantiKapat();
+            return Varliklar;
+
+
         }
     }
 }

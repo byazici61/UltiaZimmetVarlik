@@ -102,6 +102,7 @@ namespace UltiaVarlik.UI
             this.lvTablo.GridLines = true;
             this.lvTablo.HideSelection = false;
             this.lvTablo.Location = new System.Drawing.Point(222, 138);
+            this.lvTablo.MultiSelect = false;
             this.lvTablo.Name = "lvTablo";
             this.lvTablo.Size = new System.Drawing.Size(652, 321);
             this.lvTablo.TabIndex = 2;

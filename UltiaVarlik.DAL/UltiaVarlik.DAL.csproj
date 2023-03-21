@@ -48,6 +48,8 @@
     <Compile Include="ArayuzDeposu\IVeriEkle.cs" />
     <Compile Include="ArayuzDeposu\IVeriSil.cs" />
     <Compile Include="DAL\FiyatDAL.cs" />
+    <Compile Include="DAL\MarkaDAL.cs" />
+    <Compile Include="DAL\ModelDAL.cs" />
     <Compile Include="DAL\ParaBirimiDAL.cs" />
     <Compile Include="DAL\PersonelGirisDAL.cs" />
     <Compile Include="DAL\PersonelZimmetDAL.cs" />

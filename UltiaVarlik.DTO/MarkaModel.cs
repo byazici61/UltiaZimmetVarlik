@@ -11,5 +11,9 @@ namespace UltiaVarlik.DTO
         public int MarkaModelID { get; set; }
         public string MarkaModeAdi { get; set; }
         public MarkaModel UstMarkaModel { get; set; }
+        public override string ToString()
+        {
+            return MarkaModeAdi;
+        }
     }
 }
