@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
-using UltiaVarlik.DTO.GeriDonusTipi;
+
 
 namespace UltiaVarlik.UI
 {
@@ -20,16 +20,20 @@ namespace UltiaVarlik.UI
             InitializeComponent();
             txtSifre.PasswordChar = '*';
         }
-
+        /// <summary>
+        /// Giriş yap butonunda db den şifre kontrolü yapıp doğru kullanıcı ise giriş yapar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
-            PersonelGirisDAL personelGiris = new PersonelGirisDAL();
-            Personel girisYapanKullanici = personelGiris.VeriCek(txtKullanıcıMail.Text, txtSifre.Text);
-            if (girisYapanKullanici!=null)
+            PersonelGirisDAL PersonelGiris = new PersonelGirisDAL();
+            Personel GirisYapanKullanici = PersonelGiris.VeriCek(txtKullanıcıMail.Text, txtSifre.Text);
+            if (GirisYapanKullanici!=null)
             {
                 
-                FrmGenelEkran frmGenel = new FrmGenelEkran(girisYapanKullanici);
-                frmGenel.Show();
+                FrmGenelEkran FrmGenel = new FrmGenelEkran(GirisYapanKullanici);
+                FrmGenel.Show();
                 this.Hide();
             }
             else
@@ -41,6 +45,12 @@ namespace UltiaVarlik.UI
 
         }
 
+
+        /// <summary>
+        /// Şifreyi gösterme Gizlme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbSifereGöster_CheckedChanged(object sender, EventArgs e)
         {
             if (cbSifereGöster.Checked)

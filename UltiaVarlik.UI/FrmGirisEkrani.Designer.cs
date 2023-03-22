@@ -114,6 +114,7 @@ namespace UltiaVarlik.UI
             this.Controls.Add(this.txtKullanıcıMail);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGirisEkrani";
             this.Text = "LogIn";

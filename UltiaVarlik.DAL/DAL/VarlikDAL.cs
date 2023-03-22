@@ -45,7 +45,7 @@ namespace UltiaVarlik.DAL
                         varlik.Barkot = rdr.GetGuid(1);
 
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                         varlik.Barkot = Guid.Empty;
                     }
@@ -99,8 +99,8 @@ namespace UltiaVarlik.DAL
                         varlik.Barkot = rdr.GetGuid(1);
 
                     }
-                    catch (Exception ex)
-                    { //TODO barkotsuzu bi kontrol et
+                    catch (Exception )
+                    { 
                         varlik.Barkot = Guid.Empty;
                         varlik.Birim = new Birim() { BirimID = rdr.GetInt32(2), BirimAdi = rdr.GetString(3) };
                         varlik.Miktar = Convert.ToInt32(rdr.GetDecimal(16));

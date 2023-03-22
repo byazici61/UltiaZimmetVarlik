@@ -21,7 +21,7 @@ namespace UltiaVarlik.DAL.DAL
         /// <returns></returns>
         public List<SirketEkipZimmet> VeriCek(int id)
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select sez.SirketEkipID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model " +
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select sez.SirketEkipID as [Kayıt Numarası],v.VarlikID,v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model " +
                 "from SirketEkipZimmet sez inner join SirketEkip se on sez.SirketEkipID = se.SirketEkipID " +
                 "inner join Zimmet z on sez.ZimmetID = z.ZimmedID " +
                 "inner join VarlikDepo vd on z.VarlikDepoID = vd.VarlikDepoID " +
@@ -30,7 +30,7 @@ namespace UltiaVarlik.DAL.DAL
                 "inner join Fiyat fy on fy.VarlikID = v.VarlikID " +
                 "inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID " +
                 "inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID " +
-                $"where sez.SirketEkipID = {id} and sez.AktifMi='True'");
+                $"where sez.SirketEkipID = {id} and sez.AktifMi='True' and fy.AktifMi='True'");
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
             {
@@ -38,16 +38,16 @@ namespace UltiaVarlik.DAL.DAL
 
                 while (rdr.Read())
                 {
-                    VarlikGrubu varlikGrubu = new VarlikGrubu() { VarlikGrubuAdi = rdr.GetString(2) };
-                    MarkaModel markaModel = new MarkaModel() { MarkaModeAdi = rdr.GetString(4) + " " + rdr.GetString(5) };
-                    Varlik varlik = new Varlik() { Barkot = Guid.Empty, VarlikGrubu = varlikGrubu, MarkaModel = markaModel, Fiyat = Convert.ToDouble(rdr.GetDecimal(3)) };
+                    VarlikGrubu varlikGrubu = new VarlikGrubu() { VarlikGrubuAdi = rdr.GetString(3) };
+                    MarkaModel markaModel = new MarkaModel() { MarkaModeAdi = rdr.GetString(5) + " " + rdr.GetString(6) };
+                    Varlik varlik = new Varlik() {VarlikID=rdr.GetInt32(1), Barkot = Guid.Empty, VarlikGrubu = varlikGrubu, MarkaModel = markaModel, Fiyat = Convert.ToDouble(rdr.GetDecimal(4)) };
                     Zimmet zimmet = new Zimmet() { ZimmetID = rdr.GetInt32(0), Varlik = varlik };
-                    SirketEkipZimmet sirketZimmet = new SirketEkipZimmet() { SirketEkipZimmetID = rdr.GetInt32(0), Zimmet = zimmet };
+                    SirketEkipZimmet sirketZimmet = new SirketEkipZimmet() { Zimmet = zimmet };
                     try
                     {
-                        sirketZimmet.Zimmet.Varlik.Barkot = rdr.GetGuid(1);
+                        sirketZimmet.Zimmet.Varlik.Barkot = rdr.GetGuid(2);
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                        
 

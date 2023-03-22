@@ -15,21 +15,21 @@ namespace UltiaVarlik.UI
 {
     public partial class FrmVarliklarim : Form
     {
-        private Personel girisYapanKullanici;
-        List<SirketEkipZimmet> sirketEkipZimmetler;
-        List<PersonelZimmet> personelZimmetler;
-        PersonelZimmet secilenPersonelZimmet;
-        List<Varlik> varliklar;
-        Varlik secilenVarlik;
+        private Personel GirisYapanKullanici;
+        List<SirketEkipZimmet> SirketEkipZimmetler;
+        List<PersonelZimmet> PersonelZimmetler;
+        PersonelZimmet SecilenPersonelZimmet;
+        List<Varlik> Varliklar;
+        Varlik SecilenVarlik;
         public FrmVarliklarim()
         {
             InitializeComponent();
         }
 
-        public FrmVarliklarim(Personel girisYapanKullanici) : this()
+        public FrmVarliklarim(Personel GirisYapanKullanici) : this()
         {
-            this.girisYapanKullanici = girisYapanKullanici;
-
+            this.GirisYapanKullanici = GirisYapanKullanici;
+            
         }
 
         private void FrmVarliklarim_Load(object sender, EventArgs e)
@@ -53,9 +53,9 @@ namespace UltiaVarlik.UI
         {
             LabelRenkDegistir((Label)sender);
             lvTablo.Items.Clear();
-            VarlikDAL varlik = new VarlikDAL();
-            varliklar = varlik.VeriCek();
-            foreach (Varlik item in varliklar)
+            VarlikDAL Varlik = new VarlikDAL();
+            Varliklar = Varlik.VeriCek();
+            foreach (Varlik item in Varliklar)
             {
                 ListViewItem lvi = new ListViewItem(item.VarlikID.ToString());
                 lvi.SubItems.Add(item.Barkot.ToString());
@@ -83,9 +83,9 @@ namespace UltiaVarlik.UI
         {
             LabelRenkDegistir((Label)sender);
             lvTablo.Items.Clear();
-            PersonelZimmetDAL personelZimmet = new PersonelZimmetDAL();
-            personelZimmetler = personelZimmet.VeriCek(girisYapanKullanici.PersonelID);
-            foreach (PersonelZimmet item in personelZimmetler)
+            PersonelZimmetDAL PersonelZimmet = new PersonelZimmetDAL();
+            PersonelZimmetler = PersonelZimmet.VeriCek(GirisYapanKullanici.PersonelID);
+            foreach (PersonelZimmet item in PersonelZimmetler)
             {
                 ListViewItem lvi = new ListViewItem(item.KullaniciZimmetID.ToString());
                 lvi.SubItems.Add(item.Zimmet.Varlik.Barkot.ToString());
@@ -113,10 +113,10 @@ namespace UltiaVarlik.UI
             LabelRenkDegistir((Label)sender);
             lvTablo.Items.Clear();
             SirketEkipZimmetDAL sirketEkipZimmet = new SirketEkipZimmetDAL();
-            sirketEkipZimmetler = sirketEkipZimmet.VeriCek(girisYapanKullanici.SirketEkip.SirketEkipID);
-            foreach (SirketEkipZimmet item in sirketEkipZimmetler)
+            SirketEkipZimmetler = sirketEkipZimmet.VeriCek(GirisYapanKullanici.SirketEkip.SirketEkipID);
+            foreach (SirketEkipZimmet item in SirketEkipZimmetler)
             {
-                ListViewItem lvi = new ListViewItem(item.SirketEkipZimmetID.ToString());
+                ListViewItem lvi = new ListViewItem(item.Zimmet.Varlik.VarlikID.ToString());
                 lvi.SubItems.Add(item.Zimmet.Varlik.Barkot.ToString());
                 lvi.SubItems.Add(item.Zimmet.Varlik.VarlikGrubu.VarlikGrubuAdi);
                 lvi.SubItems.Add(item.Zimmet.Varlik.Fiyat.ToString());
@@ -140,7 +140,7 @@ namespace UltiaVarlik.UI
         /// <returns></returns>
         private bool AdminRol()
         {
-            return (girisYapanKullanici.Rol.RolAdi == "Power User" || girisYapanKullanici.Rol.RolAdi == "Depo Admin" ? true : false);
+            return (GirisYapanKullanici.Rol.RolAdi == "Power User" || GirisYapanKullanici.Rol.RolAdi == "Depo Admin" ? true : false);
 
         }
 
@@ -152,34 +152,34 @@ namespace UltiaVarlik.UI
         /// <param name="e"></param>
         private void btnVarlikDüzenle_Click(object sender, EventArgs e)
         {
-            string secilenID = lvTablo.SelectedItems[0].SubItems[0].Text.ToString();
+            string SecilenID = lvTablo.SelectedItems[0].SubItems[0].Text.ToString();
             if (!AdminRol())
             {
-                foreach (PersonelZimmet personelZimmet in personelZimmetler)
+                foreach (PersonelZimmet PersonelZimmet in PersonelZimmetler)
                 {
-                    if (personelZimmet.KullaniciZimmetID == int.Parse(secilenID))
+                    if (PersonelZimmet.KullaniciZimmetID == int.Parse(SecilenID))
                     {
-                        secilenPersonelZimmet = personelZimmet;
+                        SecilenPersonelZimmet = PersonelZimmet;
                     }
                 }
-                FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle(secilenPersonelZimmet);
-                frmVarlikGuncelle.Show();
-                this.Tag = secilenPersonelZimmet.Zimmet.Varlik;
+                FrmVarlikGuncelle FrmVarlikGuncelle = new FrmVarlikGuncelle(SecilenPersonelZimmet);
+                FrmVarlikGuncelle.Show();
+                this.Tag = SecilenPersonelZimmet.Zimmet.Varlik;
             }
             else
             {
 
-                foreach (Varlik varlik in varliklar)
+                foreach (Varlik varlik in Varliklar)
                 {
-                    if (varlik.VarlikID == int.Parse(secilenID))
+                    if (varlik.VarlikID == int.Parse(SecilenID))
                     {
-                        secilenVarlik = varlik;
+                        SecilenVarlik = varlik;
                     }
 
                 }
-                FrmVarlikGuncelle frmVarlikGuncelle = new FrmVarlikGuncelle(secilenVarlik);
-                frmVarlikGuncelle.Show();
-                this.Tag = secilenVarlik;
+                FrmVarlikGuncelle FrmVarlikGuncelle = new FrmVarlikGuncelle(SecilenVarlik);
+                FrmVarlikGuncelle.Show();
+                this.Tag = SecilenVarlik;
             }
             
         }

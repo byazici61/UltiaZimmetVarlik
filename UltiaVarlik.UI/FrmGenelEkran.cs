@@ -15,21 +15,21 @@ namespace UltiaVarlik.UI
     public partial class FrmGenelEkran : Form
     {
       
-        FrmGirisEkrani frmGiris;
-        FrmVarlikGuncelle frmVarGun= new FrmVarlikGuncelle();
-        FrmVarliklarim frmVarlik;
-        FrmDuyurular frmDuyuru = new FrmDuyurular();
-        FrmSorular frmSoru = new FrmSorular();
-        private Personel girisYapanKullanici;
+   
+
+        FrmVarliklarim FrmVarlik;
+        FrmDuyurular FrmDuyuru = new FrmDuyurular();
+        FrmSorular FrmSoru = new FrmSorular();
+        private Personel GirisYapanKullanici;
 
         public FrmGenelEkran()
         {
             InitializeComponent();
         }
 
-        public FrmGenelEkran(Personel girisYapanKullanici) : this()
+        public FrmGenelEkran(Personel GirisYapanKullanici) : this()
         {
-            this.girisYapanKullanici = girisYapanKullanici;
+            this.GirisYapanKullanici = GirisYapanKullanici;
             
         }
 
@@ -37,18 +37,18 @@ namespace UltiaVarlik.UI
         private void duyurularToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            frmDuyuru.MdiParent = this;
-            frmDuyuru.Show();
-            frmDuyuru.WindowState = FormWindowState.Maximized;
+            FrmDuyuru.MdiParent = this;
+            FrmDuyuru.Show();
+            FrmDuyuru.WindowState = FormWindowState.Maximized;
             
         }
 
         private void sikcaSorulanSorularToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            frmSoru.MdiParent = this;
-            frmSoru.Show();
-            frmSoru.WindowState = FormWindowState.Maximized;
+            FrmSoru.MdiParent = this;
+            FrmSoru.Show();
+            FrmSoru.WindowState = FormWindowState.Maximized;
 
         }
 
@@ -61,17 +61,17 @@ namespace UltiaVarlik.UI
 
         private void varliklariGosterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVarlik = new FrmVarliklarim(girisYapanKullanici);
-            frmVarlik.MdiParent = this;
-            frmVarlik.Show();
-            frmVarlik.WindowState = FormWindowState.Maximized;
+            FrmVarlik = new FrmVarliklarim(GirisYapanKullanici);
+            FrmVarlik.MdiParent = this;
+            FrmVarlik.Show();
+            FrmVarlik.WindowState = FormWindowState.Maximized;
 
 
         }
 
         private void FrmGenelEkran_Load(object sender, EventArgs e)
         {
-            tstxtPersonelAdSoyad.Text = girisYapanKullanici.PersonelAdi + " " + girisYapanKullanici.PersonelSoyadi + " Ekip : " + girisYapanKullanici.SirketEkip.SirketEkipAdi;
+            tstxtPersonelAdSoyad.Text = GirisYapanKullanici.PersonelAdi + " " + GirisYapanKullanici.PersonelSoyadi + " Ekip : " + GirisYapanKullanici.SirketEkip.SirketEkipAdi;
         }
     }
 }

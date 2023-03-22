@@ -66,7 +66,7 @@ namespace UltiaVarlik.Provider
                 result = cmd.ExecuteNonQuery();
 
             }
-            catch (Exception ex )
+            catch (Exception  )
             {
 
                 result = 0;
@@ -93,7 +93,7 @@ namespace UltiaVarlik.Provider
                 BaglantiAc();
                 result = cmd.ExecuteScalar();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
 
@@ -123,7 +123,7 @@ namespace UltiaVarlik.Provider
             catch (Exception)
             {
 
-
+                
             }
             return rdr;
         }

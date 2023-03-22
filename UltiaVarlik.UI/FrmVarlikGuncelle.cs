@@ -17,22 +17,22 @@ namespace UltiaVarlik.UI
 {
     public partial class FrmVarlikGuncelle : Form
     {
-        private PersonelZimmet secilenPersonelZimmet;
-        private Varlik secilenVarlik;
+        private PersonelZimmet SecilenPersonelZimmet;
+        private Varlik SecilenVarlik;
         ModelDAL Model;
         MarkaDAL Marka;
-        VarlikDAL varlik;
-        VarlikGrubuDAL varlikGrubu;
-        ParaBirimiDAL paraBirimi;
-        FiyatDAL fiyat;
-        BirimDAL birim;
+        VarlikDAL Varlik;
+        VarlikGrubuDAL VarlikGrubu;
+        ParaBirimiDAL ParaBirimi;
+        FiyatDAL Fiyat;
+        BirimDAL Birim;
 
-        List<Fiyat> fiyatlar;
-        List<ParaBirimi> paraBirimleri;
-        List<VarlikGrubu> varlikGrublari;
-        List<Varlik> varliklar;
+        List<Fiyat> Fiyatlar;
+        List<ParaBirimi> ParaBirimleri;
+        //List<VarlikGrubu> varlikGrublari;
+        List<Varlik> Varliklar;
         List<MarkaModel> MarkalarModeller;
-        List<Birim> birimler;
+        //List<Birim> birimler;
 
         public FrmVarlikGuncelle()
         {
@@ -41,11 +41,11 @@ namespace UltiaVarlik.UI
 
         public FrmVarlikGuncelle(PersonelZimmet secilenPersonelZimmet) : this()
         {
-            this.secilenPersonelZimmet = secilenPersonelZimmet;
+            this.SecilenPersonelZimmet = secilenPersonelZimmet;
         } 
         public FrmVarlikGuncelle(Varlik secilenVarlik) : this()
         {
-            this.secilenVarlik = secilenVarlik;
+            this.SecilenVarlik = secilenVarlik;
         }
 
         private void FrmVarlikGuncelle_Load(object sender, EventArgs e)
@@ -54,40 +54,43 @@ namespace UltiaVarlik.UI
 
         }
 
+        /// <summary>
+        /// Formun ilgili compeneentlerini DAL lardan gelen bilgilerle dolduran method
+        /// </summary>
         private void FormuDoldur()
         {
 
-            fiyat = new FiyatDAL();
-            paraBirimi = new ParaBirimiDAL();
-            varlikGrubu = new VarlikGrubuDAL();
-            varlik = new VarlikDAL();
+            Fiyat = new FiyatDAL();
+            ParaBirimi = new ParaBirimiDAL();
+            VarlikGrubu = new VarlikGrubuDAL();
+            Varlik = new VarlikDAL();
             Marka = new MarkaDAL();
             Model = new ModelDAL();
-            birim = new BirimDAL();
-            if (secilenVarlik==null)
+            Birim = new BirimDAL();
+            if (SecilenVarlik==null)
             {
-                fiyatlar = fiyat.VeriCek(secilenPersonelZimmet.Zimmet.Varlik.VarlikID);
-                varliklar = varlik.VeriCek(secilenPersonelZimmet.Zimmet.Varlik.VarlikID);
+                Fiyatlar = Fiyat.VeriCek(SecilenPersonelZimmet.Zimmet.Varlik.VarlikID);
+                Varliklar = Varlik.VeriCek(SecilenPersonelZimmet.Zimmet.Varlik.VarlikID);
             }
             else
             {
-                fiyatlar = fiyat.VeriCek(secilenVarlik.VarlikID);
-                varliklar = varlik.VeriCek(secilenVarlik.VarlikID);
+                Fiyatlar = Fiyat.VeriCek(SecilenVarlik.VarlikID);
+                Varliklar = Varlik.VeriCek(SecilenVarlik.VarlikID);
             }
             
-            paraBirimleri = paraBirimi.VeriCek();
-            varlikGrublari = varlikGrubu.VeriCek();
+            ParaBirimleri = ParaBirimi.VeriCek();
+            //varlikGrublari = VarlikGrubu.VeriCek();
             MarkalarModeller = Marka.VeriCek();
-            birimler = birim.VeriCek();
+            //birimler = Birim.VeriCek();
           
-            txtFiyat.Text = fiyatlar[0].ParaMiktari.ToString();
-            cmbFiyatParaBirimi.Items.AddRange(paraBirimleri.ToArray());
+            txtFiyat.Text = Fiyatlar[0].ParaMiktari.ToString();
+            cmbFiyatParaBirimi.Items.AddRange(ParaBirimleri.ToArray());
             
-            txtBarkod.Text = varliklar[0].Barkot.ToString();
-            if (varliklar[0].Barkot==Guid.Empty)
+            txtBarkod.Text = Varliklar[0].Barkot.ToString();
+            if (Varliklar[0].Barkot==Guid.Empty)
             {
-                cmbBirim.Text = varliklar[0].Birim.BirimAdi;
-                numAdet.Value = Convert.ToDecimal(varliklar[0].Miktar);
+                cmbBirim.Text = Varliklar[0].Birim.BirimAdi;
+                numAdet.Value = Convert.ToDecimal(Varliklar[0].Miktar);
                 cbBarkod.Checked = false;
             }
             else
@@ -98,23 +101,28 @@ namespace UltiaVarlik.UI
                 lblAdet.Visible = false;
 
             }
-            cmbUrunTipi.SelectedItem = varliklar[0].VarlikGrubu;
-            cmbUrunTipi.Text = varliklar[0].VarlikGrubu.VarlikGrubuAdi;
-            cmbMarka.SelectedItem = varliklar[0].MarkaModel.UstMarkaModel;
-            cmbMarka.Text = varliklar[0].MarkaModel.UstMarkaModel.MarkaModeAdi;
-            cmbModel.Text = varliklar[0].MarkaModel.MarkaModeAdi;
-            cmbGaranti.SelectedIndex = (varliklar[0].GarantiliMi == true ? 1 : 0);
-            dtpGiris.Value = varliklar[0].CikisTarihi;
-            txtMaliyet.Text = varliklar[0].MaliyetFiyati.ToString();
-            cmbMaliyetParaBirimi.SelectedItem = varliklar[0].MaaliyetParaBirimi;
-            cmbMaliyetParaBirimi.Text = varliklar[0].MaaliyetParaBirimi.ParaBirimiAdi;
-            txtFiyat.Text = fiyatlar[0].ParaMiktari.ToString();
-            cmbFiyatParaBirimi.SelectedItem = fiyatlar[0].ParaBirimi;
-            cmbFiyatParaBirimi.Text = fiyatlar[0].ParaBirimi.ParaBirimiAdi;
-            txtAciklama.Text = varliklar[0].Aciklama;
+            cmbUrunTipi.SelectedItem = Varliklar[0].VarlikGrubu;
+            cmbUrunTipi.Text = Varliklar[0].VarlikGrubu.VarlikGrubuAdi;
+            cmbMarka.SelectedItem = Varliklar[0].MarkaModel.UstMarkaModel;
+            cmbMarka.Text = Varliklar[0].MarkaModel.UstMarkaModel.MarkaModeAdi;
+            cmbModel.Text = Varliklar[0].MarkaModel.MarkaModeAdi;
+            cmbGaranti.SelectedIndex = (Varliklar[0].GarantiliMi == true ? 1 : 0);
+            dtpGiris.Value = Varliklar[0].CikisTarihi;
+            txtMaliyet.Text = Varliklar[0].MaliyetFiyati.ToString();
+            cmbMaliyetParaBirimi.SelectedItem = Varliklar[0].MaaliyetParaBirimi;
+            cmbMaliyetParaBirimi.Text = Varliklar[0].MaaliyetParaBirimi.ParaBirimiAdi;
+            txtFiyat.Text = Fiyatlar[0].ParaMiktari.ToString();
+            cmbFiyatParaBirimi.SelectedItem = Fiyatlar[0].ParaBirimi;
+            cmbFiyatParaBirimi.Text = Fiyatlar[0].ParaBirimi.ParaBirimiAdi;
+            txtAciklama.Text = Varliklar[0].Aciklama;
 
 
         }
+
+
+        /// <summary>
+        /// MArkaya Göre modelleri listle fonksiyonu yazılmış fakat analizde bir talep olmadığı için kullanılmadan bırakılmıştır.
+        /// </summary>
         public void MarkayaGoreModelleriGuncelle()
         {
             cmbModel.Items.Clear();
@@ -122,11 +130,23 @@ namespace UltiaVarlik.UI
             MarkalarModeller = Model.VeriCek((cmbMarka.SelectedItem as MarkaModel).MarkaModelID);
             cmbModel.Items.AddRange(MarkalarModeller.ToArray());
         }
+        /// <summary>
+        /// marka füzenlenbilir bırakılsaydı seçilen markaya göre modelleri getirren method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
         {
             MarkayaGoreModelleriGuncelle();
         }
 
+
+
+        /// <summary>
+        /// Barkod durumuna göre ilgili kompanentlerin davranışlarını düzenleyen method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbBarkod_CheckedChanged(object sender, EventArgs e)
         {
             if (cbBarkod.Checked)
@@ -149,36 +169,58 @@ namespace UltiaVarlik.UI
 
         }
 
-     
+         /// <summary>
+         /// kaydet Butonu Eventi
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-  
+
+            VarlikGuncelle();
+        }
+
+        /// <summary>
+        /// Kaydet Butonuna tıklandığında İlgili DAlları kullanarak yeni fiyat oluşturan ve varlığın özellikleirni düzenleyen method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void VarlikGuncelle()
+        {
             Varlik düzenleneceVarlik = new Varlik()
             {
                 Aciklama = txtAciklama.Text,
                 GarantiliMi = cmbGaranti.SelectedIndex == 1 ? true : false,
-                VarlikID = varliklar[0].VarlikID
-                
+                VarlikID = Varliklar[0].VarlikID
+
             };
             Fiyat eklenecekFiyat = new Fiyat()
             {
                 ParaMiktari = double.Parse(txtFiyat.Text),
                 ParaBirimi = new ParaBirimi() { ParaBirimiID = (cmbFiyatParaBirimi.SelectedItem as ParaBirimi).ParaBirimiID },
-                Varlik = new Varlik() { VarlikID = varliklar[0].VarlikID }
+                Varlik = new Varlik() { VarlikID = Varliklar[0].VarlikID }
             };
-            varlik = new VarlikDAL();
-            fiyat = new FiyatDAL();
-            GeriDonusum g1 = varlik.VeriDuzenle(düzenleneceVarlik);
-            GeriDonusum g2 =fiyat.VeriEkle(eklenecekFiyat);
-            MessageBox.Show(g1.GeriDonusMesaji+" "+g2.GeriDonusMesaji);
+            Varlik = new VarlikDAL();
+            Fiyat = new FiyatDAL();
+            GeriDonusum g1 = Varlik.VeriDuzenle(düzenleneceVarlik);
+            GeriDonusum g2 = Fiyat.VeriEkle(eklenecekFiyat);
+            MessageBox.Show(g1.GeriDonusMesaji + " " + g2.GeriDonusMesaji);
+
+
         }
 
+
+        /// <summary>
+        /// Aksiyonlarda seçili işleme göre yönlendirme yapan case
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbAksiyonlar_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cmbAksiyonlar.SelectedIndex)
             {
                 case 0:
-                    FrmTuket frmTuket = new FrmTuket(varliklar[0]);
+                    FrmTuket frmTuket = new FrmTuket(Varliklar[0]);
                     frmTuket.Show();
                     break;
                 case 1:

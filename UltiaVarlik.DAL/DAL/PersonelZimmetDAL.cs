@@ -48,9 +48,8 @@ namespace UltiaVarlik.DAL.DAL
                     {
                         personelZimmet.Zimmet.Varlik.Barkot = rdr.GetGuid(1);
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
-                        // do nothing, default value already set
 
                     }
                     Zimmetler.Add(personelZimmet);

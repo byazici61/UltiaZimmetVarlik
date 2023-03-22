@@ -40,17 +40,17 @@ namespace UltiaVarlik.UI
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnVarlikDüzenle = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVarlikDüzenle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +106,7 @@ namespace UltiaVarlik.UI
             this.lvTablo.FullRowSelect = true;
             this.lvTablo.GridLines = true;
             this.lvTablo.HideSelection = false;
-            this.lvTablo.Location = new System.Drawing.Point(241, 138);
+            this.lvTablo.Location = new System.Drawing.Point(250, 138);
             this.lvTablo.MultiSelect = false;
             this.lvTablo.Name = "lvTablo";
             this.lvTablo.Size = new System.Drawing.Size(844, 321);
@@ -117,26 +117,27 @@ namespace UltiaVarlik.UI
             // columnHeader1
             // 
             this.columnHeader1.Text = "Kayıt Numarası";
+            this.columnHeader1.Width = 67;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Barkod";
-            this.columnHeader2.Width = 137;
+            this.columnHeader2.Width = 212;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Ürün Tipi";
-            this.columnHeader3.Width = 97;
+            this.columnHeader3.Width = 176;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "ÜrünGüncelFiyati";
-            this.columnHeader4.Width = 160;
+            this.columnHeader4.Width = 182;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Marka";
-            this.columnHeader5.Width = 88;
+            this.columnHeader5.Width = 109;
             // 
             // columnHeader6
             // 
@@ -156,6 +157,26 @@ namespace UltiaVarlik.UI
             this.groupBox1.Size = new System.Drawing.Size(200, 559);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::UltiaVarlik.UI.Properties.Resources.DepoYönetimi;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 227);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(188, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::UltiaVarlik.UI.Properties.Resources.Butonlar;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 184);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(188, 37);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
@@ -188,6 +209,16 @@ namespace UltiaVarlik.UI
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UltiaVarlik.UI.Properties.Resources.ultia;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 77);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnVarlikDüzenle
             // 
             this.btnVarlikDüzenle.Enabled = false;
@@ -198,36 +229,6 @@ namespace UltiaVarlik.UI
             this.btnVarlikDüzenle.Text = "Varlık Düzenle";
             this.btnVarlikDüzenle.UseVisualStyleBackColor = true;
             this.btnVarlikDüzenle.Click += new System.EventHandler(this.btnVarlikDüzenle_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::UltiaVarlik.UI.Properties.Resources.DepoYönetimi;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 227);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(188, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::UltiaVarlik.UI.Properties.Resources.Butonlar;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 184);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(188, 37);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UltiaVarlik.UI.Properties.Resources.ultia;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmVarliklarim
             // 
@@ -242,15 +243,16 @@ namespace UltiaVarlik.UI
             this.Controls.Add(this.lblEkipVarliklar);
             this.Controls.Add(this.lblVarliklarim);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVarliklarim";
             this.Text = "Varlıklarım";
             this.Load += new System.EventHandler(this.FrmVarliklarim_Load);
             this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

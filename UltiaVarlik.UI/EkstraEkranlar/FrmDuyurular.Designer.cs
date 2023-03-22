@@ -61,6 +61,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.treeDuyuru);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmDuyurular";
             this.Text = "Duyurular";
             this.Load += new System.EventHandler(this.FrmDuyurular_Load);

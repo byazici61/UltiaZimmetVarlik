@@ -70,7 +70,7 @@ namespace UltiaVarlik.UI
             // varliklariGosterToolStripMenuItem
             // 
             this.varliklariGosterToolStripMenuItem.Name = "varliklariGosterToolStripMenuItem";
-            this.varliklariGosterToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.varliklariGosterToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.varliklariGosterToolStripMenuItem.Text = "Varlıkları Göster";
             this.varliklariGosterToolStripMenuItem.Click += new System.EventHandler(this.varliklariGosterToolStripMenuItem_Click);
             // 
@@ -148,6 +148,7 @@ namespace UltiaVarlik.UI
             this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmGenelEkran";

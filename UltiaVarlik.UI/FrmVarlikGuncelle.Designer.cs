@@ -445,6 +445,7 @@ namespace UltiaVarlik.UI
             this.Controls.Add(this.label16);
             this.Controls.Add(this.pbBilgiler);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmVarlikGuncelle";
             this.Text = "Varlik Güncelleme";

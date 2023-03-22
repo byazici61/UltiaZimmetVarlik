@@ -61,6 +61,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.treeSoru);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmSorular";
             this.Text = "Sıkca Sorulan Sorular";
             this.Load += new System.EventHandler(this.FrmSorular_Load);
