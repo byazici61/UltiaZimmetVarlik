@@ -29,44 +29,29 @@ namespace UltiaVarlik.UI.EkstraEkranlar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("cevap1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("soru1", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("cevap2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("soru2", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
             this.treeSoru = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // treeSoru
             // 
+            this.treeSoru.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeSoru.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.treeSoru.Location = new System.Drawing.Point(38, 84);
+            this.treeSoru.Location = new System.Drawing.Point(0, 43);
             this.treeSoru.Name = "treeSoru";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "cevap1";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "soru1";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "cevap2";
-            treeNode4.Name = "Node2";
-            treeNode4.Text = "soru2";
-            this.treeSoru.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
-            this.treeSoru.Size = new System.Drawing.Size(700, 291);
+            this.treeSoru.Size = new System.Drawing.Size(800, 407);
             this.treeSoru.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(261, 34);
+            this.label2.Location = new System.Drawing.Point(264, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(269, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "Sıkca Sorulan Sorular";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FrmSorular
             // 
@@ -77,6 +62,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.Controls.Add(this.treeSoru);
             this.Name = "FrmSorular";
             this.Text = "Sıkca Sorulan Sorular";
+            this.Load += new System.EventHandler(this.FrmSorular_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

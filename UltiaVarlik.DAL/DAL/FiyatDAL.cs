@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
+
 using UltiaVarlik.DTO;
+using UltiaVarlik.DTO.GeriDonusTipi;
 using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL.DAL
 {
-    public class FiyatDAL : IVeriCekID<Fiyat>
+    public class FiyatDAL : IVeriCekID<Fiyat> ,IVeriEkle<Fiyat>
     {
         // TODO düzenlemeye devam et
         List<Fiyat> fiyatlar;
@@ -39,6 +41,26 @@ namespace UltiaVarlik.DAL.DAL
 
             }
             return fiyatlar;
+        }
+
+        public GeriDonusum VeriEkle(Fiyat eklenecekVeri)
+        {
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into Fiyat(VarlikID,ParaMiktari,GuncellemeTarihi,ParaBirimiID,AktifMi) Values(@v,@p,@t,@b,@a)");
+            List<SqlParameter> parametreListem = new List<SqlParameter>();
+            parametreListem.Add(new SqlParameter("@v", eklenecekVeri.Varlik.VarlikID));
+            parametreListem.Add(new SqlParameter("@p", eklenecekVeri.ParaMiktari));
+            parametreListem.Add(new SqlParameter("@t", DateTime.Now));
+            parametreListem.Add(new SqlParameter("@b", eklenecekVeri.ParaBirimi.ParaBirimiID));
+            parametreListem.Add(new SqlParameter("@a", true));
+            con.ParametreEkle(parametreListem.ToArray());
+            int etkilenenSatirSayisi = con.ExcecuteNon();
+
+            return new GeriDonusum()
+            {
+                GeriDonus = etkilenenSatirSayisi,
+                GeriDonusMesaji = etkilenenSatirSayisi > 0 ? "Fiyat Bilgisi Başarıyla Eklendi" : "Fiyat Eklenemedi",
+                GeriDonusTipi = etkilenenSatirSayisi > 0
+            };
         }
     }
 }

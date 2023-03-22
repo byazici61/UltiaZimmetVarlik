@@ -12,6 +12,7 @@ namespace UltiaVarlik.Provider
     {
         SqlConnection conn = null;
         public SqlCommand cmd = null;
+        SqlCommand[] sqlcommandlar;
 
         public MSSQLSaglayicisi(string YapilamakIstenenQuery, string Adres = "server=DESKTOP-CI8397F\\MSSQLSERVER03;Database=VarlıkDB;uid=sa;pwd=123")
         {
@@ -20,6 +21,12 @@ namespace UltiaVarlik.Provider
             cmd.CommandText = YapilamakIstenenQuery;
 
             cmd.Connection = conn;
+        }
+        public MSSQLSaglayicisi(string YapilamakIstenenBirinciQuery, string YapilamakIstenenIkinciQuery, string ConnectionText = "server=DESKTOP-CI8397F\\MSSQLSERVER03;Database=VarlıkDB;uid=sa;pwd=123")
+        {
+            conn = new SqlConnection(ConnectionText);
+            sqlcommandlar[0] = new SqlCommand(YapilamakIstenenBirinciQuery, conn);
+            sqlcommandlar[1] = new SqlCommand(YapilamakIstenenIkinciQuery, conn);
         }
 
         public void BaglantiKapat()
@@ -50,7 +57,7 @@ namespace UltiaVarlik.Provider
                 result = cmd.ExecuteNonQuery();
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
                 result = 0;
@@ -64,6 +71,7 @@ namespace UltiaVarlik.Provider
 
         }
 
+
         public object ExecutScalar()
         {
             object result = null;
@@ -73,7 +81,7 @@ namespace UltiaVarlik.Provider
                 BaglantiAc();
                 result = cmd.ExecuteScalar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
 
@@ -103,13 +111,41 @@ namespace UltiaVarlik.Provider
 
 
             }
-
-
-
-
             return rdr;
-
         }
+
+        public void TransactionFoksiyonu()
+        {
+
+            BaglantiAc();
+
+            SqlTransaction transaction = conn.BeginTransaction(); ;
+            foreach (SqlCommand command in sqlcommandlar)
+            {
+
+                command.Transaction = transaction;
+            }
+            try
+            {
+
+                foreach (SqlCommand command in sqlcommandlar)
+                {
+                    command.ExecuteNonQuery();
+                }
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                Console.WriteLine("Transaction geri alındı." + ex.Message);
+            }
+            finally
+            {
+                BaglantiKapat();
+            }
+        }
+
+
 
         public void ParametreEkle(SqlParameter[] sqlParameters)
         {

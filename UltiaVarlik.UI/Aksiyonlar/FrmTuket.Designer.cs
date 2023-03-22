@@ -89,7 +89,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(402, 451);
             this.Controls.Add(this.btnTuket);
             this.Controls.Add(this.label2);
@@ -99,7 +99,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTuket";
-            this.Text = "Tuketim";
+            this.Text = "Tüket";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -63,6 +63,7 @@ namespace UltiaVarlik.UI
 
                 lvTablo.Items.Add(lvi);
             }
+           
             btnVarlikDüzenle.Enabled = true;
         }
         private void lblVarliklarim_Click(object sender, EventArgs e)

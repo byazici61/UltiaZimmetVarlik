@@ -29,12 +29,6 @@ namespace UltiaVarlik.UI.EkstraEkranlar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("cevap1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("soru1", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("cevap2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("soru2", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
             this.label2 = new System.Windows.Forms.Label();
             this.treeDuyuru = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
@@ -43,7 +37,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(318, 33);
+            this.label2.Location = new System.Drawing.Point(319, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 31);
             this.label2.TabIndex = 4;
@@ -51,22 +45,13 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             // treeDuyuru
             // 
+            this.treeDuyuru.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeDuyuru.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.treeDuyuru.Location = new System.Drawing.Point(41, 88);
+            this.treeDuyuru.Location = new System.Drawing.Point(0, 43);
             this.treeDuyuru.Name = "treeDuyuru";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "cevap1";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "soru1";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "cevap2";
-            treeNode4.Name = "Node2";
-            treeNode4.Text = "soru2";
-            this.treeDuyuru.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
-            this.treeDuyuru.Size = new System.Drawing.Size(700, 291);
+            this.treeDuyuru.Size = new System.Drawing.Size(800, 407);
             this.treeDuyuru.TabIndex = 3;
+            this.treeDuyuru.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeDuyuru_AfterSelect);
             // 
             // FrmDuyurular
             // 
@@ -77,6 +62,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.Controls.Add(this.treeDuyuru);
             this.Name = "FrmDuyurular";
             this.Text = "Duyurular";
+            this.Load += new System.EventHandler(this.FrmDuyurular_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

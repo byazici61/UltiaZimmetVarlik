@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UltiaVarlik.DAL.ArayuzDeposu;
+using UltiaVarlik.DTO;
+using UltiaVarlik.Provider;
+
+namespace UltiaVarlik.DAL.DAL
+{
+    public class SoruDAL : IVeriCek<Soru>
+    {
+        List<Soru> Sorular;
+        public List<Soru> VeriCek()
+        {
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select Soru,cevap from Soru");
+
+            SqlDataReader rdr = con.ExcuteRedaer();
+
+            if (rdr.HasRows)
+            {
+                Sorular = new List<Soru>();
+                while (rdr.Read())
+                {
+                    Sorular.Add( new Soru()
+                    {
+                        SoruMetni = rdr.GetString(0),
+                        Cevap = rdr.GetString(1)
+                    });
+
+                }
+                
+            }
+            return Sorular;
+        }
+        
+            
+        
+}
+}

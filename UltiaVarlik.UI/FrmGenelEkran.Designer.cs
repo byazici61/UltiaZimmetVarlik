@@ -32,7 +32,6 @@ namespace UltiaVarlik.UI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.varlıkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.varliklariGosterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.varliklariGuncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rapor1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rapor2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,8 +62,7 @@ namespace UltiaVarlik.UI
             // varlıkToolStripMenuItem
             // 
             this.varlıkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.varliklariGosterToolStripMenuItem,
-            this.varliklariGuncelleToolStripMenuItem});
+            this.varliklariGosterToolStripMenuItem});
             this.varlıkToolStripMenuItem.Name = "varlıkToolStripMenuItem";
             this.varlıkToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.varlıkToolStripMenuItem.Text = "Varlık";
@@ -75,13 +73,6 @@ namespace UltiaVarlik.UI
             this.varliklariGosterToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.varliklariGosterToolStripMenuItem.Text = "Varlıkları Göster";
             this.varliklariGosterToolStripMenuItem.Click += new System.EventHandler(this.varliklariGosterToolStripMenuItem_Click);
-            // 
-            // varliklariGuncelleToolStripMenuItem
-            // 
-            this.varliklariGuncelleToolStripMenuItem.Name = "varliklariGuncelleToolStripMenuItem";
-            this.varliklariGuncelleToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.varliklariGuncelleToolStripMenuItem.Text = "Varlıkları Güncelle";
-            this.varliklariGuncelleToolStripMenuItem.Click += new System.EventHandler(this.varliklariGuncelleToolStripMenuItem_Click);
             // 
             // raporlamaToolStripMenuItem
             // 
@@ -134,7 +125,7 @@ namespace UltiaVarlik.UI
             // 
             // tstxtPersonelAdSoyad
             // 
-            this.tstxtPersonelAdSoyad.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tstxtPersonelAdSoyad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tstxtPersonelAdSoyad.Name = "tstxtPersonelAdSoyad";
             this.tstxtPersonelAdSoyad.Size = new System.Drawing.Size(300, 25);
             // 
@@ -177,7 +168,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ToolStripButton btnCikisYap;
         private System.Windows.Forms.ToolStripMenuItem varlıkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem varliklariGosterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem varliklariGuncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporlamaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rapor1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rapor2ToolStripMenuItem;

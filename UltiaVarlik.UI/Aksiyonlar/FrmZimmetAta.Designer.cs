@@ -160,7 +160,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(443, 487);
             this.Controls.Add(this.btnZimmetAta);
             this.Controls.Add(this.txtAçiklama);

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using UltiaVarlik.DAL;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
+using UltiaVarlik.DTO.GeriDonusTipi;
+using UltiaVarlik.UI.Aksiyonlar;
 
 namespace UltiaVarlik.UI
 {
@@ -74,13 +76,8 @@ namespace UltiaVarlik.UI
             paraBirimleri = paraBirimi.VeriCek();
             varlikGrublari = varlikGrubu.VeriCek();
             MarkalarModeller = Marka.VeriCek();
-
-
             txtFiyat.Text = fiyatlar[0].ParaMiktari.ToString();
-            cmbMaliyetParaBirimi.Items.AddRange(paraBirimleri.ToArray());
             cmbFiyatParaBirimi.Items.AddRange(paraBirimleri.ToArray());
-            cmbUrunTipi.Items.AddRange(varlikGrublari.ToArray());
-            cmbMarka.Items.AddRange(MarkalarModeller.ToArray());
             txtBarkod.Text = varliklar[0].Barkot.ToString();
             cmbUrunTipi.SelectedItem = varliklar[0].VarlikGrubu;
             cmbUrunTipi.Text = varliklar[0].VarlikGrubu.VarlikGrubuAdi;
@@ -93,7 +90,7 @@ namespace UltiaVarlik.UI
             cmbMaliyetParaBirimi.SelectedItem = varliklar[0].MaaliyetParaBirimi;
             cmbMaliyetParaBirimi.Text = varliklar[0].MaaliyetParaBirimi.ParaBirimiAdi;
             txtFiyat.Text = fiyatlar[0].ParaMiktari.ToString();
-            cmbFiyatParaBirimi.SelectedItem = fiyatlar[0];
+            cmbFiyatParaBirimi.SelectedItem = fiyatlar[0].ParaBirimi;
             cmbFiyatParaBirimi.Text = fiyatlar[0].ParaBirimi.ParaBirimiAdi;
             txtAciklama.Text = varliklar[0].Aciklama;
 
@@ -118,11 +115,11 @@ namespace UltiaVarlik.UI
                 numAdet.Visible = false;
                 lblBirim.Visible = false;
                 lblAdet.Visible = false;
-                txtBarkod.Enabled = true;
+                
             }
             else
             {
-                txtBarkod.Enabled = false;
+              
                 cmbBirim.Visible = true;
                 numAdet.Visible = true;
                 lblBirim.Visible = true;
@@ -130,6 +127,48 @@ namespace UltiaVarlik.UI
             }
             
 
+        }
+
+     
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+  
+            Varlik düzenleneceVarlik = new Varlik()
+            {
+                Aciklama = txtAciklama.Text,
+                GarantiliMi = cmbGaranti.SelectedIndex == 1 ? true : false,
+                VarlikID = varliklar[0].VarlikID
+                
+            };
+            Fiyat eklenecekFiyat = new Fiyat()
+            {
+                ParaMiktari = double.Parse(txtFiyat.Text),
+                ParaBirimi = new ParaBirimi() { ParaBirimiID = (cmbFiyatParaBirimi.SelectedItem as ParaBirimi).ParaBirimiID },
+                Varlik = new Varlik() { VarlikID = varliklar[0].VarlikID }
+            };
+            varlik = new VarlikDAL();
+            fiyat = new FiyatDAL();
+            GeriDonusum g1 = varlik.VeriDuzenle(düzenleneceVarlik);
+            GeriDonusum g2 =fiyat.VeriEkle(eklenecekFiyat);
+            MessageBox.Show(g1.GeriDonusMesaji+" "+g2.GeriDonusMesaji);
+        }
+
+        private void cmbAksiyonlar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbAksiyonlar.SelectedIndex)
+            {
+                case 0:
+                    FrmTuket frmTuket = new FrmTuket();
+                    frmTuket.Show();
+                    break;
+                case 1:
+                    FrmZimmetAta frmZimmetAta = new FrmZimmetAta();
+                    frmZimmetAta.Show();
+                    break;
+                default:
+                    MessageBox.Show("Giriş Yetkiniz Bulunmamakta");
+                    break;
+            }
         }
     }
 }

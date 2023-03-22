@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
 
-namespace UltiaVarlik.DAL.ArayüzDeposu
+namespace UltiaVarlik.DAL.ArayuzDeposu
 {
     public interface IVeriEkle<T> where T : AnaDTO
     {
-        GeriDonusum VeriEkle(T EklenecekVeri);
+        GeriDonusum VeriEkle(T eklenecekVeri);
     }
 }
