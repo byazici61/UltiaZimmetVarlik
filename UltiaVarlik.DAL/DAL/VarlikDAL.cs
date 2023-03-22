@@ -71,7 +71,7 @@ namespace UltiaVarlik.DAL
 
                     }
                     catch (Exception ex)
-                    {
+                    { //TODO barkotsuzu bi kontrol et
                         varlik.Barkot = Guid.Empty;
                         varlik.Birim = new Birim() { BirimID = rdr.GetInt32(2), BirimAdi = rdr.GetString(3) };
                         varlik.Miktar = rdr.GetInt32(16);
@@ -79,7 +79,7 @@ namespace UltiaVarlik.DAL
                     
                     varlik.VarlikGrubu = new VarlikGrubu() { VarlikGrubuID = rdr.GetInt32(4), VarlikGrubuAdi = rdr.GetString(5) };
                     varlik.MarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(8), MarkaModeAdi = rdr.GetString(9), UstMarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(6), MarkaModeAdi = rdr.GetString(7) } };
-                    varlik.GarantiliMi = (rdr.GetString(10) == "Var" ? true : false);
+                    varlik.GarantiliMi = (rdr.GetString(10) == "Var" );
                     varlik.CikisTarihi = rdr.GetDateTime(11);
                     varlik.Aciklama = rdr.GetString(12);
                     varlik.MaliyetFiyati = Convert.ToDouble(rdr.GetDecimal(13));

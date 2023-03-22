@@ -15,7 +15,8 @@ namespace UltiaVarlik.UI
 {
     public partial class FrmVarlikGuncelle : Form
     {
-        private PersonelZimmet personelZimmet;
+        private PersonelZimmet secilenPersonelZimmet;
+        private Varlik secilenVarlik;
         ModelDAL Model;
         MarkaDAL Marka;
         VarlikDAL varlik;
@@ -34,9 +35,13 @@ namespace UltiaVarlik.UI
             InitializeComponent();
         }
 
-        public FrmVarlikGuncelle(PersonelZimmet personelZimmet) : this()
+        public FrmVarlikGuncelle(PersonelZimmet secilenPersonelZimmet) : this()
         {
-            this.personelZimmet = personelZimmet;
+            this.secilenPersonelZimmet = secilenPersonelZimmet;
+        } 
+        public FrmVarlikGuncelle(Varlik secilenVarlik) : this()
+        {
+            this.secilenVarlik = secilenVarlik;
         }
 
         private void FrmVarlikGuncelle_Load(object sender, EventArgs e)
@@ -55,10 +60,19 @@ namespace UltiaVarlik.UI
             Marka = new MarkaDAL();
             Model = new ModelDAL();
 
-            fiyatlar = fiyat.VeriCek(1);
+            if (secilenVarlik==null)
+            {
+                fiyatlar = fiyat.VeriCek(secilenPersonelZimmet.Zimmet.Varlik.VarlikID);
+                varliklar = varlik.VeriCek(secilenPersonelZimmet.Zimmet.Varlik.VarlikID);
+            }
+            else
+            {
+                fiyatlar = fiyat.VeriCek(secilenVarlik.VarlikID);
+                varliklar = varlik.VeriCek(secilenVarlik.VarlikID);
+            }
+            
             paraBirimleri = paraBirimi.VeriCek();
             varlikGrublari = varlikGrubu.VeriCek();
-            varliklar = varlik.VeriCek(1);
             MarkalarModeller = Marka.VeriCek();
 
 
@@ -90,12 +104,32 @@ namespace UltiaVarlik.UI
             cmbModel.Text = "";
             MarkalarModeller = Model.VeriCek((cmbMarka.SelectedItem as MarkaModel).MarkaModelID);
             cmbModel.Items.AddRange(MarkalarModeller.ToArray());
-
-            -
         }
         private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
         {
             MarkayaGoreModelleriGuncelle();
+        }
+
+        private void cbBarkod_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBarkod.Checked)
+            {
+                cmbBirim.Visible = false;
+                numAdet.Visible = false;
+                lblBirim.Visible = false;
+                lblAdet.Visible = false;
+                txtBarkod.Enabled = true;
+            }
+            else
+            {
+                txtBarkod.Enabled = false;
+                cmbBirim.Visible = true;
+                numAdet.Visible = true;
+                lblBirim.Visible = true;
+                lblAdet.Visible = true;
+            }
+            
+
         }
     }
 }

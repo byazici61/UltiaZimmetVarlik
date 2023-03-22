@@ -36,8 +36,8 @@ namespace UltiaVarlik.UI
             this.txtMaliyet = new System.Windows.Forms.TextBox();
             this.dtpEmekli = new System.Windows.Forms.DateTimePicker();
             this.dtpGiris = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.numAdet = new System.Windows.Forms.NumericUpDown();
+            this.cmbBirim = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@ namespace UltiaVarlik.UI
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblAdet = new System.Windows.Forms.Label();
+            this.lblBirim = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,27 +59,25 @@ namespace UltiaVarlik.UI
             this.cmbMarka = new System.Windows.Forms.ComboBox();
             this.cmbUrunTipi = new System.Windows.Forms.ComboBox();
             this.txtBarkod = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.txtUrunID = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.cmbAksiyonlar = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.cbBarkod = new System.Windows.Forms.CheckBox();
             this.pbBilgiler.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAdet)).BeginInit();
             this.SuspendLayout();
             // 
             // pbBilgiler
             // 
             this.pbBilgiler.BackColor = System.Drawing.SystemColors.Control;
+            this.pbBilgiler.Controls.Add(this.cbBarkod);
             this.pbBilgiler.Controls.Add(this.button1);
             this.pbBilgiler.Controls.Add(this.txtAciklama);
             this.pbBilgiler.Controls.Add(this.txtFiyat);
             this.pbBilgiler.Controls.Add(this.txtMaliyet);
             this.pbBilgiler.Controls.Add(this.dtpEmekli);
             this.pbBilgiler.Controls.Add(this.dtpGiris);
-            this.pbBilgiler.Controls.Add(this.numericUpDown1);
-            this.pbBilgiler.Controls.Add(this.comboBox5);
+            this.pbBilgiler.Controls.Add(this.numAdet);
+            this.pbBilgiler.Controls.Add(this.cmbBirim);
             this.pbBilgiler.Controls.Add(this.label14);
             this.pbBilgiler.Controls.Add(this.label5);
             this.pbBilgiler.Controls.Add(this.label13);
@@ -88,8 +86,8 @@ namespace UltiaVarlik.UI
             this.pbBilgiler.Controls.Add(this.label11);
             this.pbBilgiler.Controls.Add(this.label3);
             this.pbBilgiler.Controls.Add(this.label2);
-            this.pbBilgiler.Controls.Add(this.label7);
-            this.pbBilgiler.Controls.Add(this.label6);
+            this.pbBilgiler.Controls.Add(this.lblAdet);
+            this.pbBilgiler.Controls.Add(this.lblBirim);
             this.pbBilgiler.Controls.Add(this.label9);
             this.pbBilgiler.Controls.Add(this.label10);
             this.pbBilgiler.Controls.Add(this.label8);
@@ -101,13 +99,12 @@ namespace UltiaVarlik.UI
             this.pbBilgiler.Controls.Add(this.cmbMarka);
             this.pbBilgiler.Controls.Add(this.cmbUrunTipi);
             this.pbBilgiler.Controls.Add(this.txtBarkod);
-            this.pbBilgiler.Controls.Add(this.radioButton1);
             this.pbBilgiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbBilgiler.Location = new System.Drawing.Point(0, 105);
+            this.pbBilgiler.Location = new System.Drawing.Point(0, 133);
             this.pbBilgiler.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbBilgiler.Name = "pbBilgiler";
             this.pbBilgiler.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pbBilgiler.Size = new System.Drawing.Size(842, 511);
+            this.pbBilgiler.Size = new System.Drawing.Size(842, 483);
             this.pbBilgiler.TabIndex = 0;
             this.pbBilgiler.TabStop = false;
             this.pbBilgiler.Text = "Varlık Bilgileri";
@@ -164,22 +161,22 @@ namespace UltiaVarlik.UI
             this.dtpGiris.Size = new System.Drawing.Size(294, 22);
             this.dtpGiris.TabIndex = 7;
             // 
-            // numericUpDown1
+            // numAdet
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(276, 53);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 22);
-            this.numericUpDown1.TabIndex = 6;
+            this.numAdet.Location = new System.Drawing.Point(276, 53);
+            this.numAdet.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.numAdet.Name = "numAdet";
+            this.numAdet.Size = new System.Drawing.Size(57, 22);
+            this.numAdet.TabIndex = 6;
             // 
-            // comboBox5
+            // cmbBirim
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(158, 53);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(106, 24);
-            this.comboBox5.TabIndex = 5;
+            this.cmbBirim.FormattingEnabled = true;
+            this.cmbBirim.Location = new System.Drawing.Point(158, 53);
+            this.cmbBirim.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmbBirim.Name = "cmbBirim";
+            this.cmbBirim.Size = new System.Drawing.Size(106, 24);
+            this.cmbBirim.TabIndex = 5;
             // 
             // label14
             // 
@@ -261,25 +258,25 @@ namespace UltiaVarlik.UI
             this.label2.TabIndex = 4;
             this.label2.Text = "Ürün Para Birimi";
             // 
-            // label7
+            // lblAdet
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(273, 33);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 16);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Adet";
+            this.lblAdet.AutoSize = true;
+            this.lblAdet.Location = new System.Drawing.Point(273, 33);
+            this.lblAdet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdet.Name = "lblAdet";
+            this.lblAdet.Size = new System.Drawing.Size(34, 16);
+            this.lblAdet.TabIndex = 3;
+            this.lblAdet.Text = "Adet";
             // 
-            // label6
+            // lblBirim
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(154, 33);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 16);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Birim";
+            this.lblBirim.AutoSize = true;
+            this.lblBirim.Location = new System.Drawing.Point(154, 33);
+            this.lblBirim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBirim.Name = "lblBirim";
+            this.lblBirim.Size = new System.Drawing.Size(38, 16);
+            this.lblBirim.TabIndex = 3;
+            this.lblBirim.Text = "Birim";
             // 
             // label9
             // 
@@ -387,43 +384,6 @@ namespace UltiaVarlik.UI
             this.txtBarkod.Size = new System.Drawing.Size(304, 22);
             this.txtBarkod.TabIndex = 1;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 53);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(115, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Barkodsuz Ürün";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // txtUrunID
-            // 
-            this.txtUrunID.Location = new System.Drawing.Point(37, 39);
-            this.txtUrunID.Name = "txtUrunID";
-            this.txtUrunID.Size = new System.Drawing.Size(168, 22);
-            this.txtUrunID.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(37, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 16);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Ürün ID:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(229, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 22);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Ara";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // cmbAksiyonlar
             // 
             this.cmbAksiyonlar.FormattingEnabled = true;
@@ -437,7 +397,7 @@ namespace UltiaVarlik.UI
             "Kayıp/Çalıntı Bildir ",
             " Zimmet Ata",
             "Yorum Ekle"});
-            this.cmbAksiyonlar.Location = new System.Drawing.Point(582, 39);
+            this.cmbAksiyonlar.Location = new System.Drawing.Point(622, 24);
             this.cmbAksiyonlar.Name = "cmbAksiyonlar";
             this.cmbAksiyonlar.Size = new System.Drawing.Size(208, 24);
             this.cmbAksiyonlar.TabIndex = 4;
@@ -445,11 +405,22 @@ namespace UltiaVarlik.UI
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(579, 20);
+            this.label16.Location = new System.Drawing.Point(619, 5);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(68, 16);
             this.label16.TabIndex = 2;
             this.label16.Text = "Aksiyonlar:";
+            // 
+            // cbBarkod
+            // 
+            this.cbBarkod.AutoSize = true;
+            this.cbBarkod.Location = new System.Drawing.Point(29, 53);
+            this.cbBarkod.Name = "cbBarkod";
+            this.cbBarkod.Size = new System.Drawing.Size(108, 20);
+            this.cbBarkod.TabIndex = 12;
+            this.cbBarkod.Text = "Barkodlu Ürün";
+            this.cbBarkod.UseVisualStyleBackColor = true;
+            this.cbBarkod.CheckedChanged += new System.EventHandler(this.cbBarkod_CheckedChanged);
             // 
             // FrmVarlikGuncelle
             // 
@@ -458,10 +429,7 @@ namespace UltiaVarlik.UI
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(842, 616);
             this.Controls.Add(this.cmbAksiyonlar);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtUrunID);
             this.Controls.Add(this.pbBilgiler);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -470,7 +438,7 @@ namespace UltiaVarlik.UI
             this.Load += new System.EventHandler(this.FrmVarlikGuncelle_Load);
             this.pbBilgiler.ResumeLayout(false);
             this.pbBilgiler.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAdet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,8 +447,8 @@ namespace UltiaVarlik.UI
         #endregion
 
         private System.Windows.Forms.GroupBox pbBilgiler;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.NumericUpDown numAdet;
+        private System.Windows.Forms.ComboBox cmbBirim;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -491,7 +459,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ComboBox cmbMarka;
         private System.Windows.Forms.ComboBox cmbUrunTipi;
         private System.Windows.Forms.TextBox txtBarkod;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.TextBox txtFiyat;
         private System.Windows.Forms.TextBox txtMaliyet;
@@ -500,8 +467,8 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblAdet;
+        private System.Windows.Forms.Label lblBirim;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
@@ -509,10 +476,8 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ComboBox cmbMaliyetParaBirimi;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtUrunID;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cmbAksiyonlar;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox cbBarkod;
     }
 }

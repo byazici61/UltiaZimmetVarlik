@@ -44,6 +44,7 @@ namespace UltiaVarlik.UI
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVarlikDüzenle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +54,7 @@ namespace UltiaVarlik.UI
             // 
             this.lblVarliklarim.AutoSize = true;
             this.lblVarliklarim.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblVarliklarim.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblVarliklarim.ForeColor = System.Drawing.Color.Black;
             this.lblVarliklarim.Location = new System.Drawing.Point(291, 88);
             this.lblVarliklarim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVarliklarim.Name = "lblVarliklarim";
@@ -66,7 +67,7 @@ namespace UltiaVarlik.UI
             // 
             this.lblEkipVarliklar.AutoSize = true;
             this.lblEkipVarliklar.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblEkipVarliklar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblEkipVarliklar.ForeColor = System.Drawing.Color.Black;
             this.lblEkipVarliklar.Location = new System.Drawing.Point(439, 88);
             this.lblEkipVarliklar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEkipVarliklar.Name = "lblEkipVarliklar";
@@ -80,7 +81,7 @@ namespace UltiaVarlik.UI
             this.lblTumVarliklar.AutoSize = true;
             this.lblTumVarliklar.Enabled = false;
             this.lblTumVarliklar.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTumVarliklar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTumVarliklar.ForeColor = System.Drawing.Color.Black;
             this.lblTumVarliklar.Location = new System.Drawing.Point(657, 88);
             this.lblTumVarliklar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTumVarliklar.Name = "lblTumVarliklar";
@@ -147,7 +148,7 @@ namespace UltiaVarlik.UI
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 483);
+            this.groupBox1.Size = new System.Drawing.Size(200, 532);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -193,11 +194,23 @@ namespace UltiaVarlik.UI
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnVarlikDüzenle
+            // 
+            this.btnVarlikDüzenle.Enabled = false;
+            this.btnVarlikDüzenle.Location = new System.Drawing.Point(737, 481);
+            this.btnVarlikDüzenle.Name = "btnVarlikDüzenle";
+            this.btnVarlikDüzenle.Size = new System.Drawing.Size(137, 39);
+            this.btnVarlikDüzenle.TabIndex = 4;
+            this.btnVarlikDüzenle.Text = "Varlık Düzenle";
+            this.btnVarlikDüzenle.UseVisualStyleBackColor = true;
+            this.btnVarlikDüzenle.Click += new System.EventHandler(this.btnVarlikDüzenle_Click);
+            // 
             // FrmVarliklarim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 483);
+            this.ClientSize = new System.Drawing.Size(899, 532);
+            this.Controls.Add(this.btnVarlikDüzenle);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvTablo);
             this.Controls.Add(this.lblTumVarliklar);
@@ -233,5 +246,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnVarlikDüzenle;
     }
 }
