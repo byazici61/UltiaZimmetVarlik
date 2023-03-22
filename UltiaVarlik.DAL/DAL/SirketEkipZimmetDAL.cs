@@ -44,7 +44,7 @@ namespace UltiaVarlik.DAL.DAL
                     }
                     catch (Exception ex)
                     {
-                        // do nothing, default value already set
+                       
 
                     }
                     Zimmetler.Add(sirketZimmet);

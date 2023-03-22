@@ -49,7 +49,7 @@ namespace UltiaVarlik.DAL.DAL
         public GeriDonusum VeriEkle(Fiyat eklenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into Fiyat(VarlikID,ParaMiktari,GuncellemeTarihi,ParaBirimiID,AktifMi) " +
-                "Values(@varlikid,@paramiktari,@tarih,@birimi,@aktifmi)");
+                "-Values(@varlikid,@paramiktari,@tarih,@birimi,@aktifmi)");
             List<SqlParameter> parametreListem = new List<SqlParameter>();
             parametreListem.Add(new SqlParameter("@varlikid", eklenecekVeri.Varlik.VarlikID));
             parametreListem.Add(new SqlParameter("@paramiktari", eklenecekVeri.ParaMiktari));

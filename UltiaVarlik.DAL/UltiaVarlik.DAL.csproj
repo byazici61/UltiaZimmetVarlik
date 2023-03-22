@@ -47,6 +47,7 @@
     <Compile Include="ArayuzDeposu\IVeriCek.cs" />
     <Compile Include="ArayuzDeposu\IVeriEkle.cs" />
     <Compile Include="ArayuzDeposu\IVeriSil.cs" />
+    <Compile Include="DAL\BirimDAL.cs" />
     <Compile Include="DAL\DuyuruDAL.cs" />
     <Compile Include="DAL\FiyatDAL.cs" />
     <Compile Include="DAL\MarkaDAL.cs" />

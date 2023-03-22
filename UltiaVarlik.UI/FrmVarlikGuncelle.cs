@@ -25,12 +25,14 @@ namespace UltiaVarlik.UI
         VarlikGrubuDAL varlikGrubu;
         ParaBirimiDAL paraBirimi;
         FiyatDAL fiyat;
+        BirimDAL birim;
 
         List<Fiyat> fiyatlar;
         List<ParaBirimi> paraBirimleri;
         List<VarlikGrubu> varlikGrublari;
         List<Varlik> varliklar;
         List<MarkaModel> MarkalarModeller;
+        List<Birim> birimler;
 
         public FrmVarlikGuncelle()
         {
@@ -61,7 +63,7 @@ namespace UltiaVarlik.UI
             varlik = new VarlikDAL();
             Marka = new MarkaDAL();
             Model = new ModelDAL();
-
+            birim = new BirimDAL();
             if (secilenVarlik==null)
             {
                 fiyatlar = fiyat.VeriCek(secilenPersonelZimmet.Zimmet.Varlik.VarlikID);
@@ -76,9 +78,26 @@ namespace UltiaVarlik.UI
             paraBirimleri = paraBirimi.VeriCek();
             varlikGrublari = varlikGrubu.VeriCek();
             MarkalarModeller = Marka.VeriCek();
+            birimler = birim.VeriCek();
+          
             txtFiyat.Text = fiyatlar[0].ParaMiktari.ToString();
             cmbFiyatParaBirimi.Items.AddRange(paraBirimleri.ToArray());
+            
             txtBarkod.Text = varliklar[0].Barkot.ToString();
+            if (varliklar[0].Barkot==Guid.Empty)
+            {
+                cmbBirim.Text = varliklar[0].Birim.BirimAdi;
+                numAdet.Value = Convert.ToDecimal(varliklar[0].Miktar);
+                cbBarkod.Checked = false;
+            }
+            else
+            {
+                cmbBirim.Visible = false;
+                numAdet.Visible = false;
+                lblBirim.Visible = false;
+                lblAdet.Visible = false;
+
+            }
             cmbUrunTipi.SelectedItem = varliklar[0].VarlikGrubu;
             cmbUrunTipi.Text = varliklar[0].VarlikGrubu.VarlikGrubuAdi;
             cmbMarka.SelectedItem = varliklar[0].MarkaModel.UstMarkaModel;
@@ -93,6 +112,7 @@ namespace UltiaVarlik.UI
             cmbFiyatParaBirimi.SelectedItem = fiyatlar[0].ParaBirimi;
             cmbFiyatParaBirimi.Text = fiyatlar[0].ParaBirimi.ParaBirimiAdi;
             txtAciklama.Text = varliklar[0].Aciklama;
+
 
         }
         public void MarkayaGoreModelleriGuncelle()

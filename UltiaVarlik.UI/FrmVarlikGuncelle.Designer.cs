@@ -112,6 +112,8 @@ namespace UltiaVarlik.UI
             // cbBarkod
             // 
             this.cbBarkod.AutoSize = true;
+            this.cbBarkod.Checked = true;
+            this.cbBarkod.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbBarkod.Location = new System.Drawing.Point(29, 53);
             this.cbBarkod.Name = "cbBarkod";
             this.cbBarkod.Size = new System.Drawing.Size(108, 20);
