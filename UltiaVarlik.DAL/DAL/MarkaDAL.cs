@@ -15,7 +15,10 @@ namespace UltiaVarlik.DAL.DAL
         List<MarkaModel> MarkaListesi;
         public List<MarkaModel> VeriCek()
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select DISTINCT mm1.MarkaModelID,mm1.MarkaModelAdi from MarkaModel mm inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID where mm1.AktifMi = 'True'");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select DISTINCT mm1.MarkaModelID,mm1.MarkaModelAdi " +
+                "from MarkaModel mm " +
+                "inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID " +
+                "where mm1.AktifMi = 'True'");
             //con.BaglantiAc();
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)

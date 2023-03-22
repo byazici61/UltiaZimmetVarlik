@@ -158,7 +158,7 @@ namespace UltiaVarlik.UI
             switch (cmbAksiyonlar.SelectedIndex)
             {
                 case 0:
-                    FrmTuket frmTuket = new FrmTuket();
+                    FrmTuket frmTuket = new FrmTuket(varliklar[0]);
                     frmTuket.Show();
                     break;
                 case 1:

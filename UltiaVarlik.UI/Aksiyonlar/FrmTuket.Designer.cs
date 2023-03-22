@@ -84,6 +84,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.btnTuket.TabIndex = 7;
             this.btnTuket.Text = "Tüket";
             this.btnTuket.UseVisualStyleBackColor = true;
+            this.btnTuket.Click += new System.EventHandler(this.btnTuket_Click);
             // 
             // FrmTuket
             // 

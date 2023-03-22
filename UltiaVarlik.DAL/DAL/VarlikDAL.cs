@@ -17,7 +17,13 @@ namespace UltiaVarlik.DAL
         List<Varlik> Varliklar;
         public List<Varlik> VeriCek()
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select v.VarlikID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as[Ürün Tipi], mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model , fy.ParaMiktari as Fiyat from Varlik v inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID inner Join Fiyat fy on fy.VarlikID = v.VarlikID where v.AktifMi='True' and fy.AktifMi='True'");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select v.VarlikID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as[Ürün Tipi], mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model , fy.ParaMiktari as Fiyat " +
+                "from Varlik v " +
+                "inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID inner " +
+                "join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID " +
+                "inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID " +
+                "inner Join Fiyat fy on fy.VarlikID = v.VarlikID " +
+                "where v.AktifMi='True' and fy.AktifMi='True'");
             //con.BaglantiAc();
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
@@ -100,11 +106,11 @@ namespace UltiaVarlik.DAL
 
         public GeriDonusum VeriDuzenle(Varlik duzenlenecekVeri)
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("update Varlik set GarantiliMi=@g , Aciklama=@a  where VarlikID =@i");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("update Varlik set GarantiliMi=@garanti , Aciklama=@aciklama  where VarlikID =@varlikid");
             List<SqlParameter> parametreListem = new List<SqlParameter>();
-            parametreListem.Add(new SqlParameter("@g", duzenlenecekVeri.GarantiliMi));
-            parametreListem.Add(new SqlParameter("@a", duzenlenecekVeri.Aciklama ));
-            parametreListem.Add(new SqlParameter("@i", duzenlenecekVeri.VarlikID));
+            parametreListem.Add(new SqlParameter("@garanti", duzenlenecekVeri.GarantiliMi));
+            parametreListem.Add(new SqlParameter("@aciklama", duzenlenecekVeri.Aciklama ));
+            parametreListem.Add(new SqlParameter("@varlikid", duzenlenecekVeri.VarlikID));
             con.ParametreEkle(parametreListem.ToArray());
             int etkilenenSatirSayisi = con.ExcecuteNon();
 
