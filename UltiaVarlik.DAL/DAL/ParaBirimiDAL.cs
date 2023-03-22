@@ -14,6 +14,11 @@ namespace UltiaVarlik.DAL.DAL
     {
         
         List<ParaBirimi> paraBirimiListesi;
+
+        /// <summary>
+        /// DB den tüm para birimlerini çeken DAL
+        /// </summary>
+        /// <returns></returns>
         public List<ParaBirimi> VeriCek()
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select ParaBirimiID, ParaBirimAdi from ParaBirimi where AktifMi = 'True'");

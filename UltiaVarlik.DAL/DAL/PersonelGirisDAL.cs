@@ -13,6 +13,12 @@ namespace UltiaVarlik.DAL.DAL
 {
     public class PersonelGirisDAL 
     {
+        /// <summary>
+        /// MAil ve şifre bilgisine göre ilglili personeli dönen DAL
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <param name="sifre"></param>
+        /// <returns></returns>
         public Personel VeriCek(string mail,string sifre)
         {
             Personel GirisYapanKullanici = null;

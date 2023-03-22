@@ -174,5 +174,14 @@
       <Name>UltiaVarlik.DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Butonlar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DepoYönetimi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login..png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

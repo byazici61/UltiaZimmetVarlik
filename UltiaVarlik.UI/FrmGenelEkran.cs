@@ -16,10 +16,10 @@ namespace UltiaVarlik.UI
     {
       
         FrmGirisEkrani frmGiris;
-        FrmVarlikGuncelle frmVarGun;
+        FrmVarlikGuncelle frmVarGun= new FrmVarlikGuncelle();
         FrmVarliklarim frmVarlik;
-        FrmDuyurular frmDuyuru;
-        FrmSorular frmSoru;
+        FrmDuyurular frmDuyuru = new FrmDuyurular();
+        FrmSorular frmSoru = new FrmSorular();
         private Personel girisYapanKullanici;
 
         public FrmGenelEkran()
@@ -33,35 +33,22 @@ namespace UltiaVarlik.UI
             
         }
 
-        private void varliklariGuncelleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmVarGun = new FrmVarlikGuncelle();
-            frmVarGun.MdiParent = this;
-            frmVarGun.Show();
-            //frmDuyuru.WindowState = FormWindowState.Minimized;
-            //frmSoru.WindowState = FormWindowState.Minimized;
-            //frmVarlik.WindowState = FormWindowState.Minimized;
-
-        }
 
         private void duyurularToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDuyuru = new FrmDuyurular();
+            
             frmDuyuru.MdiParent = this;
             frmDuyuru.Show();
-            //frmVarGun.WindowState = FormWindowState.Minimized;
-            //frmSoru.WindowState = FormWindowState.Minimized;
-            //frmVarlik.WindowState = FormWindowState.Minimized;
+            frmDuyuru.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void sikcaSorulanSorularToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSoru = new FrmSorular();
+            
             frmSoru.MdiParent = this;
             frmSoru.Show();
-            //frmVarGun.WindowState = FormWindowState.Minimized;
-            //frmDuyuru.WindowState = FormWindowState.Minimized;
-            //frmVarlik.WindowState = FormWindowState.Minimized;
+            frmSoru.WindowState = FormWindowState.Maximized;
 
         }
 
@@ -77,9 +64,8 @@ namespace UltiaVarlik.UI
             frmVarlik = new FrmVarliklarim(girisYapanKullanici);
             frmVarlik.MdiParent = this;
             frmVarlik.Show();
-            //frmVarGun.WindowState = FormWindowState.Minimized;
-            //frmDuyuru.WindowState = FormWindowState.Minimized;
-            //frmSoru.WindowState = FormWindowState.Minimized;
+            frmVarlik.WindowState = FormWindowState.Maximized;
+
 
         }
 

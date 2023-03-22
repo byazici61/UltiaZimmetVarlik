@@ -34,6 +34,7 @@ namespace UltiaVarlik.UI
 
         private void FrmVarliklarim_Load(object sender, EventArgs e)
         {
+            // Giren Kişinin Rolüne Göre Erişebileceği yerleri Belirler
             if (AdminRol())
             {
                 lblTumVarliklar.Enabled = true;
@@ -42,6 +43,12 @@ namespace UltiaVarlik.UI
             }
         }
 
+
+        /// <summary>
+        /// Label'a tıklandığında tüm varliklari getiren method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblTumVarliklar_Click(object sender, EventArgs e)
         {
             LabelRenkDegistir((Label)sender);
@@ -66,6 +73,12 @@ namespace UltiaVarlik.UI
            
             btnVarlikDüzenle.Enabled = true;
         }
+       
+        /// <summary>
+        /// labela tıklandığında sadece giriş yapan kullanıcaya ait zimmetleri geteren method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblVarliklarim_Click(object sender, EventArgs e)
         {
             LabelRenkDegistir((Label)sender);
@@ -90,6 +103,11 @@ namespace UltiaVarlik.UI
             btnVarlikDüzenle.Enabled = true;
         }
 
+        /// <summary>
+        /// label a tıklandığından giriş yapan kullanıcın ekibine ait zimmetleri getiren method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblEkipVarliklar_Click(object sender, EventArgs e)
         {
             LabelRenkDegistir((Label)sender);
@@ -115,24 +133,23 @@ namespace UltiaVarlik.UI
             //lvTablo.FullRowSelect = false;
 
         }
-
-        private void lvTablo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
+        
+        /// <summary>
+        /// kullanının rolüne göre dönüş yapan method. power user veya depo adminse true
+        /// </summary>
+        /// <returns></returns>
         private bool AdminRol()
         {
             return (girisYapanKullanici.Rol.RolAdi == "Power User" || girisYapanKullanici.Rol.RolAdi == "Depo Admin" ? true : false);
 
         }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
 
+        /// <summary>
+        /// varliklari düzele butonuna bastığında tabloda seçili olan varliğin bilgilerini düzenleme ekranına gönderen method 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVarlikDüzenle_Click(object sender, EventArgs e)
         {
             string secilenID = lvTablo.SelectedItems[0].SubItems[0].Text.ToString();
@@ -166,6 +183,10 @@ namespace UltiaVarlik.UI
             }
             
         }
+        /// <summary>
+        /// labellara tıkalndığında renk değiştirtenmethod.
+        /// </summary>
+        /// <param name="label"></param>
         public void LabelRenkDegistir(Label label)
         {
             foreach (Control c in Controls)

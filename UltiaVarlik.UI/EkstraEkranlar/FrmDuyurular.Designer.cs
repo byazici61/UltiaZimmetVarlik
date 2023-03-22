@@ -37,7 +37,7 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(319, 9);
+            this.label2.Location = new System.Drawing.Point(505, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 31);
             this.label2.TabIndex = 4;
@@ -47,9 +47,9 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.treeDuyuru.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeDuyuru.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.treeDuyuru.Location = new System.Drawing.Point(0, 43);
+            this.treeDuyuru.Location = new System.Drawing.Point(0, 70);
             this.treeDuyuru.Name = "treeDuyuru";
-            this.treeDuyuru.Size = new System.Drawing.Size(800, 407);
+            this.treeDuyuru.Size = new System.Drawing.Size(1153, 489);
             this.treeDuyuru.TabIndex = 3;
             this.treeDuyuru.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeDuyuru_AfterSelect);
             // 
@@ -57,7 +57,8 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.treeDuyuru);
             this.Name = "FrmDuyurular";

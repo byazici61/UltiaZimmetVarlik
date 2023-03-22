@@ -13,6 +13,12 @@ namespace UltiaVarlik.DAL.DAL
     public class PersonelZimmetDAL : IVeriCekID<PersonelZimmet>
     {
         List<PersonelZimmet> Zimmetler;
+
+        /// <summary>
+        /// PErsonel Zimmet Tablosundan bir personele ait zimmetleri çeken DAL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<PersonelZimmet> VeriCek(int id)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select pz.KullaniciZimmetID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model,v.VarlikID  " +

@@ -14,8 +14,11 @@ namespace UltiaVarlik.DAL.DAL
 {
     public class FiyatDAL : IVeriCekID<Fiyat> ,IVeriEkle<Fiyat>
     {
-        // TODO düzenlemeye devam et
         List<Fiyat> fiyatlar;
+
+        /// <summary>
+        /// Bir varlik id ye göre db den fiyat bilgisi geçen DAL
+        /// </summary>
         public List<Fiyat> VeriCek(int id)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select f.FiyatID, f.ParaMiktari,p.ParaBirimiID,p.ParaBirimAdi " +
@@ -46,6 +49,11 @@ namespace UltiaVarlik.DAL.DAL
             return fiyatlar;
         }
 
+        /// <summary>
+        /// Fiyat tablosuna ekleme yapmak için fiyat tipinde bir nesne alan DAL
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public GeriDonusum VeriEkle(Fiyat eklenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into Fiyat(VarlikID,ParaMiktari,GuncellemeTarihi,ParaBirimiID,AktifMi) " +

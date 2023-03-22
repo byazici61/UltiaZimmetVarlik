@@ -14,6 +14,11 @@ namespace UltiaVarlik.DAL.DAL
     {
         List<SirketEkipZimmet> Zimmetler;
 
+        /// <summary>
+        /// SirketEKipTablosundan sirketekip id bilgisine göre Veri Çeken DAL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<SirketEkipZimmet> VeriCek(int id)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select sez.SirketEkipID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as [Ürün Tipi],fy.ParaMiktari as Fiyat ,mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model " +

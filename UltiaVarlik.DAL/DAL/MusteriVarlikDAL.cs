@@ -13,6 +13,12 @@ namespace UltiaVarlik.DAL.DAL
 {
     public class MusteriVarlikDAL : IVeriEkle<MusteriVarlik>
     {
+
+        /// <summary>
+        /// MüşteriVarlik tablosuna müşteriVarlik tipindeki bir neseneyi ekleyen DAL
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public GeriDonusum VeriEkle(MusteriVarlik eklenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into MusteriVarlik(MusteriID,VarlıkID,Açıklama,AktifMİ) " +

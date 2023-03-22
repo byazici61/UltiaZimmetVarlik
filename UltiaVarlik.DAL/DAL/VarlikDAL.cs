@@ -15,6 +15,12 @@ namespace UltiaVarlik.DAL
     public class VarlikDAL : IVeriCek<Varlik>, IVeriCekID<Varlik> , IVeriDuzenle<Varlik>
     {
         List<Varlik> Varliklar;
+
+
+        /// <summary>
+        /// DB den tüm varliklari çeken dal
+        /// </summary>
+        /// <returns></returns>
         public List<Varlik> VeriCek()
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select v.VarlikID as [Kayıt Numarası],v.Barkod, vg.VarlikGrubuAdi as[Ürün Tipi], mm1.MarkaModelAdi as Marka ,mm.MarkaModelAdi as Model , fy.ParaMiktari as Fiyat " +
@@ -59,6 +65,12 @@ namespace UltiaVarlik.DAL
            
         }
 
+
+        /// <summary>
+        /// belli bir varlik id ye göre bilgi çeken DAL
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<Varlik> VeriCek(int id)
         {
 
@@ -113,6 +125,12 @@ namespace UltiaVarlik.DAL
 
         }
 
+
+        /// <summary>
+        /// varlik güncelleme için varlik tipinde bir nesne alip o nesneyi db de güncelleyen DAL
+        /// </summary>
+        /// <param name="duzenlenecekVeri"></param>
+        /// <returns></returns>
         public GeriDonusum VeriDuzenle(Varlik duzenlenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("update Varlik set GarantiliMi=@garanti , Aciklama=@aciklama  where VarlikID =@varlikid");

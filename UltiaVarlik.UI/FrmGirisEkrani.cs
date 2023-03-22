@@ -18,6 +18,7 @@ namespace UltiaVarlik.UI
         public FrmGirisEkrani()
         {
             InitializeComponent();
+            txtSifre.PasswordChar = '*';
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
@@ -38,6 +39,21 @@ namespace UltiaVarlik.UI
             
 
 
+        }
+
+        private void cbSifereGöster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbSifereGöster.Checked)
+            {
+                txtSifre.PasswordChar = '\0';
+                cbSifereGöster.Text = "Sifreyi Gizle";
+
+            }
+            else
+            {
+                txtSifre.PasswordChar = '*';
+                cbSifereGöster.Text = "Sifreyi Göster";
+            }
         }
     }
 }

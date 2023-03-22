@@ -13,6 +13,10 @@ namespace UltiaVarlik.DAL.DAL
     public class ModelDAL : IVeriCekID<MarkaModel>
     {
         List<MarkaModel> MarkaListesi;
+
+        /// <summary>
+        /// DB den tğm modelleri çeken DAL
+        /// </summary>
         public List<MarkaModel> VeriCek(int id)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select DISTINCT mm1.MarkaModelID,  mm1.MarkaModelAdi  " +

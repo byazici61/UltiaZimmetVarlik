@@ -10,6 +10,9 @@ using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL.DAL
 {
+    /// <summary>
+    /// DataBaseden Tüm Duyurulaarı Çeken DAL
+    /// </summary>
     public class DuyuruDAL : IVeriCek<Duyuru>
     {
 

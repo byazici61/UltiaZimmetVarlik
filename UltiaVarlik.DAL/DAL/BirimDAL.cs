@@ -10,6 +10,9 @@ using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL.DAL
 {
+    /// <summary>
+    /// DataBaseden Tüm Birimleri Çeken DAL
+    /// </summary>
     public class BirimDAL : IVeriCek<Birim>
     {
         List<Birim> birimler;

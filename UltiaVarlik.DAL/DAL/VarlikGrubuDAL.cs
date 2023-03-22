@@ -14,11 +14,14 @@ namespace UltiaVarlik.DAL.DAL
     public class VarlikGrubuDAL : IVeriCek<VarlikGrubu>
     {
         List<VarlikGrubu> varlikGrubuListesi;
+        /// <summary>
+        /// DB den varlik Gruplarini çeken DAL
+        /// </summary>
+        /// <returns></returns>
         public List<VarlikGrubu> VeriCek()
         {
 
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select VarlikGrubuID,VarlikGrubuAdi from VarlikGrubu where AktifMi = 'True'");
-            //con.BaglantiAc();
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
             {

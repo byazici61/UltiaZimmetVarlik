@@ -12,8 +12,12 @@ namespace UltiaVarlik.Provider
     {
         SqlConnection conn = null;
         public SqlCommand cmd = null;
-        SqlCommand[] sqlcommandlar;
-
+        
+        /// <summary>
+        /// Default bir  connection stirnge sahip const. Parametre olarak verilen queryİ ilkgili db de işleme sokar
+        /// </summary>
+        /// <param name="YapilamakIstenenQuery"></param>
+        /// <param name="Adres"></param>
         public MSSQLSaglayicisi(string YapilamakIstenenQuery, string Adres = "server=DESKTOP-CI8397F\\MSSQLSERVER03;Database=VarlıkDB;uid=sa;pwd=123")
         {
             conn = new SqlConnection(Adres);
@@ -22,13 +26,11 @@ namespace UltiaVarlik.Provider
 
             cmd.Connection = conn;
         }
-        public MSSQLSaglayicisi(string YapilamakIstenenBirinciQuery, string YapilamakIstenenIkinciQuery, string ConnectionText = "server=DESKTOP-CI8397F\\MSSQLSERVER03;Database=VarlıkDB;uid=sa;pwd=123")
-        {
-            conn = new SqlConnection(ConnectionText);
-            sqlcommandlar[0] = new SqlCommand(YapilamakIstenenBirinciQuery, conn);
-            sqlcommandlar[1] = new SqlCommand(YapilamakIstenenIkinciQuery, conn);
-        }
 
+
+        /// <summary>
+        /// Baglantinin durumuna göre Bağlantı Açar.
+        /// </summary>
         public void BaglantiKapat()
         {
             if (conn.State == ConnectionState.Open)
@@ -37,6 +39,10 @@ namespace UltiaVarlik.Provider
             }
 
         }
+
+        /// <summary>
+        /// Baglantinin durumuna göre Bağlantı kapatır.
+        /// </summary>
         public void BaglantiAc()
         {
             if (conn.State == ConnectionState.Closed)
@@ -46,7 +52,10 @@ namespace UltiaVarlik.Provider
 
         }
 
-
+        /// <summary>
+        /// insert update delete işlemleri için execute 
+        /// </summary>
+        /// <returns></returns>
         public int ExcecuteNon()
         {
             int result = 0;
@@ -71,7 +80,10 @@ namespace UltiaVarlik.Provider
 
         }
 
-
+        /// <summary>
+        /// Tek bir değer sorgular için execute
+        /// </summary>
+        /// <returns></returns>
         public object ExecutScalar()
         {
             object result = null;
@@ -94,11 +106,13 @@ namespace UltiaVarlik.Provider
 
             return result;
         }
+      
         /// <summary>
-        /// 
+        /// select işlemi için execute
         /// </summary>
         /// <returns></returns>
-        public SqlDataReader ExcuteRedaer()//yukardakiyle aynı yukarda sadece try cach var
+        ///
+        public SqlDataReader ExcuteRedaer()
         {
             SqlDataReader rdr = null;
             try
@@ -114,39 +128,10 @@ namespace UltiaVarlik.Provider
             return rdr;
         }
 
-        public void TransactionFoksiyonu()
-        {
-
-            BaglantiAc();
-
-            SqlTransaction transaction = conn.BeginTransaction(); ;
-            foreach (SqlCommand command in sqlcommandlar)
-            {
-
-                command.Transaction = transaction;
-            }
-            try
-            {
-
-                foreach (SqlCommand command in sqlcommandlar)
-                {
-                    command.ExecuteNonQuery();
-                }
-                transaction.Commit();
-            }
-            catch (Exception ex)
-            {
-                transaction?.Rollback();
-                Console.WriteLine("Transaction geri alındı." + ex.Message);
-            }
-            finally
-            {
-                BaglantiKapat();
-            }
-        }
-
-
-
+        /// <summary>
+        /// Giriilen parameterleri işleme sokan method
+        /// </summary>
+        /// <param name="sqlParameters"></param>
         public void ParametreEkle(SqlParameter[] sqlParameters)
         {
            

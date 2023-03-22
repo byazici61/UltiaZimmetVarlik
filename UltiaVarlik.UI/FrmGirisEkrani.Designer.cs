@@ -34,14 +34,14 @@ namespace UltiaVarlik.UI
             this.label2 = new System.Windows.Forms.Label();
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.btnGirisYap = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cbSifereGöster = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 196);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(180, 180);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 19);
@@ -50,16 +50,18 @@ namespace UltiaVarlik.UI
             // 
             // txtKullanıcıMail
             // 
-            this.txtKullanıcıMail.Location = new System.Drawing.Point(189, 192);
+            this.txtKullanıcıMail.Location = new System.Drawing.Point(290, 177);
             this.txtKullanıcıMail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtKullanıcıMail.Multiline = true;
             this.txtKullanıcıMail.Name = "txtKullanıcıMail";
-            this.txtKullanıcıMail.Size = new System.Drawing.Size(235, 25);
+            this.txtKullanıcıMail.Size = new System.Drawing.Size(188, 29);
             this.txtKullanıcıMail.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 274);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(238, 217);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 19);
@@ -68,41 +70,44 @@ namespace UltiaVarlik.UI
             // 
             // txtSifre
             // 
-            this.txtSifre.Location = new System.Drawing.Point(189, 269);
+            this.txtSifre.Location = new System.Drawing.Point(290, 214);
             this.txtSifre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSifre.Multiline = true;
             this.txtSifre.Name = "txtSifre";
-            this.txtSifre.Size = new System.Drawing.Size(235, 25);
+            this.txtSifre.Size = new System.Drawing.Size(188, 28);
             this.txtSifre.TabIndex = 1;
             // 
             // btnGirisYap
             // 
-            this.btnGirisYap.Location = new System.Drawing.Point(276, 316);
+            this.btnGirisYap.BackColor = System.Drawing.Color.Transparent;
+            this.btnGirisYap.Location = new System.Drawing.Point(306, 250);
             this.btnGirisYap.Margin = new System.Windows.Forms.Padding(4);
             this.btnGirisYap.Name = "btnGirisYap";
-            this.btnGirisYap.Size = new System.Drawing.Size(148, 37);
+            this.btnGirisYap.Size = new System.Drawing.Size(156, 30);
             this.btnGirisYap.TabIndex = 2;
             this.btnGirisYap.Text = "Giriş Yap";
-            this.btnGirisYap.UseVisualStyleBackColor = true;
+            this.btnGirisYap.UseVisualStyleBackColor = false;
             this.btnGirisYap.Click += new System.EventHandler(this.btnGirisYap_Click);
             // 
-            // pictureBox1
+            // cbSifereGöster
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::UltiaVarlik.UI.Properties.Resources.turkcell_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(544, 163);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.cbSifereGöster.AutoSize = true;
+            this.cbSifereGöster.BackColor = System.Drawing.Color.Transparent;
+            this.cbSifereGöster.Location = new System.Drawing.Point(486, 218);
+            this.cbSifereGöster.Name = "cbSifereGöster";
+            this.cbSifereGöster.Size = new System.Drawing.Size(107, 23);
+            this.cbSifereGöster.TabIndex = 3;
+            this.cbSifereGöster.Text = "Sifre Göster";
+            this.cbSifereGöster.UseVisualStyleBackColor = false;
+            this.cbSifereGöster.CheckedChanged += new System.EventHandler(this.cbSifereGöster_CheckedChanged);
             // 
             // FrmGirisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 397);
-            this.Controls.Add(this.pictureBox1);
+            this.BackgroundImage = global::UltiaVarlik.UI.Properties.Resources.Login_;
+            this.ClientSize = new System.Drawing.Size(779, 500);
+            this.Controls.Add(this.cbSifereGöster);
             this.Controls.Add(this.btnGirisYap);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.label2);
@@ -112,7 +117,6 @@ namespace UltiaVarlik.UI
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGirisEkrani";
             this.Text = "LogIn";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,6 +129,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSifre;
         private System.Windows.Forms.Button btnGirisYap;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cbSifereGöster;
     }
 }

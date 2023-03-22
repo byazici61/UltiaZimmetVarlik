@@ -13,6 +13,11 @@ namespace UltiaVarlik.DAL.DAL
     public class SoruDAL : IVeriCek<Soru>
     {
         List<Soru> Sorular;
+
+        /// <summary>
+        /// DB den Tüm sorulari çeken DAL
+        /// </summary>
+        /// <returns></returns>
         public List<Soru> VeriCek()
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select Soru,cevap from Soru");

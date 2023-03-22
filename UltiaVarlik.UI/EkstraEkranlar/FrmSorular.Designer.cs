@@ -37,16 +37,16 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.treeSoru.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeSoru.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.treeSoru.Location = new System.Drawing.Point(0, 43);
+            this.treeSoru.Location = new System.Drawing.Point(0, 77);
             this.treeSoru.Name = "treeSoru";
-            this.treeSoru.Size = new System.Drawing.Size(800, 407);
+            this.treeSoru.Size = new System.Drawing.Size(1153, 482);
             this.treeSoru.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(264, 9);
+            this.label2.Location = new System.Drawing.Point(451, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(269, 31);
             this.label2.TabIndex = 2;
@@ -57,7 +57,8 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ClientSize = new System.Drawing.Size(1153, 559);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.treeSoru);
             this.Name = "FrmSorular";
