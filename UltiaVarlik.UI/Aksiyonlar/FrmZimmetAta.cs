@@ -28,7 +28,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
 
 
-        List<VarlikDepo> VArlikDepolar = new List<VarlikDepo>();
+        VarlikDepo GelenDepo;
         public FrmZimmetAta()
         {
             InitializeComponent();
@@ -41,20 +41,30 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
         private void btnZimmetAta_Click(object sender, EventArgs e)
         {
-            Zimmet = new ZimmetDAL();
-            VArlikDepo = new VarlikDepoDAL();
-            VArlikDepolar.AddRange(VArlikDepo.VeriCek(varlik.VarlikID));
-            Zimmet eklenecekZimmet = new Zimmet()
+            if (TarihKontolu())
             {
-                ZimmetNedeni =new ZimmetNedeni() {ZimmetNedeniID= (cmbZimmetNedeni.SelectedItem as ZimmetNedeni).ZimmetNedeniID },
-                ZimmetTuru = new ZimmetTuru() { ZimmetTuruID = (cmbZimmetTuru.SelectedItem as ZimmetTuru).ZimmetTuruID },
-                VarlikDepo = new VarlikDepo() { Varlik = varlik, VarlikDepoID =VArlikDepolar[0].VarlikDepoID },
-                Aciklama = txtAciklama.Text
+                Zimmet = new ZimmetDAL();
+                VArlikDepo = new VarlikDepoDAL();
+                GelenDepo=VArlikDepo.DepoBul(varlik.VarlikID);
+                Zimmet eklenecekZimmet = new Zimmet()
+                {
+                    ZimmetNedeni = new ZimmetNedeni() { ZimmetNedeniID = (cmbZimmetNedeni.SelectedItem as ZimmetNedeni).ZimmetNedeniID },
+                    ZimmetTuru = new ZimmetTuru() { ZimmetTuruID = (cmbZimmetTuru.SelectedItem as ZimmetTuru).ZimmetTuruID },
+                    VarlikDepo = new VarlikDepo() { Varlik = varlik, VarlikDepoID = GelenDepo.VarlikDepoID },
+                    Aciklama = txtAciklama.Text
 
-            };
-            Zimmet.VeriEkle(eklenecekZimmet);
-            eklenenZimmetID = Zimmet.IdDon();
-            ZimmetAta(eklenenZimmetID);
+                };
+                Zimmet.VeriEkle(eklenecekZimmet);
+                eklenenZimmetID = Zimmet.IdDon();
+                ZimmetAta(eklenenZimmetID);
+            }
+            else
+            {
+                MessageBox.Show("Zimmet başlangıç tarihi bitiş tarihinden daha kücük olamaz");
+
+
+            }
+            
 
         }
         GeriDonusum geri;
@@ -123,6 +133,12 @@ namespace UltiaVarlik.UI.Aksiyonlar
                 MessageBox.Show("Şirket bazında atama yapmak içiçn yetkiniz yok");
                 cmbZimmetSahibi.SelectedItem = null;
             }
+
+        }
+        public bool TarihKontolu()
+        {
+
+            return dtpZimmetBaslangic.Value < dtpZimmetBitis.Value;
 
         }
     }

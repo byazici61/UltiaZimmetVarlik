@@ -39,6 +39,27 @@ namespace UltiaVarlik.DAL.DAL
             }
             return VarlikDepolar;
         }
+        VarlikDepo VarlikDepo;
+        public VarlikDepo DepoBul(int id)
+        {
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select VarlikDepoID from VarlikDepo where VarlikID =5");
+
+            SqlDataReader rdr = con.ExcuteRedaer();
+            if (rdr.HasRows)
+            {
+                VarlikDepo = new VarlikDepo();
+                while (rdr.Read())
+                {
+                    VarlikDepo.VarlikDepoID = rdr.GetInt32(0);
+    
+                }
+
+            }
+            return VarlikDepo;
+
+
+
+        }
 
     }
 }
