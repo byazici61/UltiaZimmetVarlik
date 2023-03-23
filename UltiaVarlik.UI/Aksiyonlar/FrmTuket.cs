@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
+using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.UI.Aksiyonlar
 {
@@ -30,19 +31,23 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
         private void btnTuket_Click(object sender, EventArgs e)
         {
-            musterivarlik = new MusteriVarlikDAL();
-
-            MusteriVarlik eklenecekMusteriVarlik = new MusteriVarlik()
+            if (txtAboneNo.Text.DoubleKontorlu())
             {
-                Aciklama = txtAcıklama.Text,
-                Musteri = new Musteri { MusteriID = int.Parse(txtAboneNo.Text) },
-                Varlik = new Varlik { VarlikID = varlik.VarlikID },
-            };
-            GeriDonusum donus = musterivarlik.VeriEkle(eklenecekMusteriVarlik);
-            MessageBox.Show(donus.GeriDonusMesaji);
+                musterivarlik = new MusteriVarlikDAL();
 
-
-
+                MusteriVarlik eklenecekMusteriVarlik = new MusteriVarlik()
+                {
+                    Aciklama = txtAcıklama.Text,
+                    Musteri = new Musteri { MusteriID = int.Parse(txtAboneNo.Text) },
+                    Varlik = new Varlik { VarlikID = varlik.VarlikID },
+                };
+                GeriDonusum donus = musterivarlik.VeriEkle(eklenecekMusteriVarlik);
+                MessageBox.Show(donus.GeriDonusMesaji);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Abone No Kısmına Harf Girmeyin");
+            }
 
         }
     }
