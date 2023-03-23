@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
@@ -16,8 +9,8 @@ namespace UltiaVarlik.UI.Aksiyonlar
 {
     public partial class FrmTuket : Form
     {
-        MusteriVarlikDAL musterivarlik;
-        private Varlik varlik;
+        MusteriVarlikDAL MusteriVarlik;
+        private Varlik Varlik;
 
         public FrmTuket()
         {
@@ -26,22 +19,26 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
         public FrmTuket(Varlik varlik) : this()
         {
-            this.varlik = varlik;
+            this.Varlik = varlik;
         }
-
+        /// <summary>
+        /// tüketme işlemini yapan event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTuket_Click(object sender, EventArgs e)
         {
             if (txtAboneNo.Text.DoubleKontorlu())
             {
-                musterivarlik = new MusteriVarlikDAL();
+                MusteriVarlik = new MusteriVarlikDAL();
 
                 MusteriVarlik eklenecekMusteriVarlik = new MusteriVarlik()
                 {
                     Aciklama = txtAcıklama.Text,
                     Musteri = new Musteri { MusteriID = int.Parse(txtAboneNo.Text) },
-                    Varlik = new Varlik { VarlikID = varlik.VarlikID },
+                    Varlik = new Varlik { VarlikID = Varlik.VarlikID },
                 };
-                GeriDonusum donus = musterivarlik.VeriEkle(eklenecekMusteriVarlik);
+                GeriDonusum donus = MusteriVarlik.VeriEkle(eklenecekMusteriVarlik);
                 MessageBox.Show(donus.GeriDonusMesaji);
             }
             else

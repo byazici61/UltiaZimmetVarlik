@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UltiaVarlik.DAL.ArayuzDeposu;
+﻿using System.Data.SqlClient;
 using UltiaVarlik.DTO;
-using UltiaVarlik.DTO.GeriDonusTipi;
 using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL.DAL

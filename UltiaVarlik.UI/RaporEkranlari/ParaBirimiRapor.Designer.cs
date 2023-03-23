@@ -32,10 +32,10 @@ namespace UltiaVarlik.UI.RaporEkranlari
             this.lvTablo = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmbParaBirimi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblBilgi = new System.Windows.Forms.Label();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvTablo
@@ -63,6 +63,11 @@ namespace UltiaVarlik.UI.RaporEkranlari
             this.columnHeader2.Text = "Fiyat";
             this.columnHeader2.Width = 247;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Varlik Grubu";
+            this.columnHeader3.Width = 306;
+            // 
             // cmbParaBirimi
             // 
             this.cmbParaBirimi.FormattingEnabled = true;
@@ -86,14 +91,8 @@ namespace UltiaVarlik.UI.RaporEkranlari
             this.lblBilgi.AutoSize = true;
             this.lblBilgi.Location = new System.Drawing.Point(273, 21);
             this.lblBilgi.Name = "lblBilgi";
-            this.lblBilgi.Size = new System.Drawing.Size(50, 19);
+            this.lblBilgi.Size = new System.Drawing.Size(0, 19);
             this.lblBilgi.TabIndex = 3;
-            this.lblBilgi.Text = "label2";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Varlik Grubu";
-            this.columnHeader3.Width = 306;
             // 
             // ParaBirimiRapor
             // 
@@ -106,7 +105,7 @@ namespace UltiaVarlik.UI.RaporEkranlari
             this.Controls.Add(this.lvTablo);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ParaBirimiRapor";
             this.Text = "ParaBirimiRapor";
             this.Load += new System.EventHandler(this.ParaBirimiRapor_Load);

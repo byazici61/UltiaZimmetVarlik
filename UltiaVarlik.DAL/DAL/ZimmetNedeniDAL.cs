@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
 using UltiaVarlik.Provider;
@@ -15,7 +11,10 @@ namespace UltiaVarlik.DAL.DAL
 
         List<ZimmetNedeni> ZimmetNedeniListes;
 
-
+        /// <summary>
+        /// dbden zimmet nedenlerini çeken dal
+        /// </summary>
+        /// <returns></returns>
         public List<ZimmetNedeni> VeriCek()
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select ZimmetNedeniID,ZimmetNedeniAdi from ZimmetNedeni where AktifMi = 'True'");

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
@@ -61,6 +58,11 @@ namespace UltiaVarlik.DAL.DAL
             return Zimmetler;
         }
 
+        /// <summary>
+        /// personel zimmete personel zimmet tipinde bir nesne ekleyen dal
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public GeriDonusum VeriEkle(PersonelZimmet eklenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into PersonelZimmet(PersonelID,ZimmetID,BaslangicTarihi,BitisTarihi,AktifMi)values(@personelid,@zimmetid,@bastarih,@bittarih,@aktifmi)");

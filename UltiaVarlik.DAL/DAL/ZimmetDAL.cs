@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
@@ -13,6 +10,11 @@ namespace UltiaVarlik.DAL.DAL
 {
     public class ZimmetDAL : IVeriEkle<Zimmet>
     {
+        /// <summary>
+        /// zimmet tablosuna bir zimmet ekleyen dal
+        /// </summary>
+        /// <param name="eklenecekVeri"></param>
+        /// <returns></returns>
         public GeriDonusum VeriEkle(Zimmet eklenecekVeri)
         {
 
@@ -33,6 +35,11 @@ namespace UltiaVarlik.DAL.DAL
                 GeriDonusTipi = etkilenenSatirSayisi > 0
             };
         }
+
+        /// <summary>
+        /// en son eklenen zimmetin id sinin dönen dal
+        /// </summary>
+        /// <returns></returns>
         public int IdDon()
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select Top(1) ZimmedID from Zimmet order by ZimmedID desc");

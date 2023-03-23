@@ -51,7 +51,6 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.label2.Size = new System.Drawing.Size(269, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "Sıkca Sorulan Sorular";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FrmSorular
             // 

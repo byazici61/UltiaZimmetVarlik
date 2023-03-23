@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
@@ -15,28 +9,28 @@ namespace UltiaVarlik.UI.EkstraEkranlar
     public partial class FrmSorular : Form
     {
 
-        SoruDAL soru;
-        List<Soru> sorular;
+        SoruDAL Soru;
+        List<Soru> Sorular;
         public FrmSorular()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// sorularla tree dolduran method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmSorular_Load(object sender, EventArgs e)
         {
-            soru = new SoruDAL();
-            sorular = new List<Soru>();
-            sorular.AddRange(soru.VeriCek().ToArray());
-            foreach (Soru item in sorular)
+            Soru = new SoruDAL();
+            Sorular = new List<Soru>();
+            Sorular.AddRange(Soru.VeriCek().ToArray());
+            foreach (Soru item in Sorular)
             {
                 treeSoru.Nodes.Add(item.SoruMetni).Nodes.Add(item.Cevap);
             }
             
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

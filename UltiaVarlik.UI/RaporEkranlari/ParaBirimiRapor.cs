@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DAL;
 using UltiaVarlik.DAL.DAL;
@@ -15,8 +9,8 @@ namespace UltiaVarlik.UI.RaporEkranlari
 {
     public partial class ParaBirimiRapor : Form
     {
-        ParaBirimiDAL paraBirimi;
-        VarlikDAL varlik; 
+        ParaBirimiDAL ParaBirimi;
+        VarlikDAL Varlik; 
         public ParaBirimiRapor()
         {
             InitializeComponent();
@@ -24,18 +18,23 @@ namespace UltiaVarlik.UI.RaporEkranlari
 
         private void ParaBirimiRapor_Load(object sender, EventArgs e)
         {
-            paraBirimi = new ParaBirimiDAL();
-            cmbParaBirimi.Items.AddRange(paraBirimi.VeriCek().ToArray());
+            ParaBirimi = new ParaBirimiDAL();
+            cmbParaBirimi.Items.AddRange(ParaBirimi.VeriCek().ToArray());
         }
 
+        /// <summary>
+        /// para birimine göre tabloyu dolduran ve toplam fiyatı yazan method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbParaBirimi_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblBilgi.Text = "";
             lvTablo.Items.Clear();
 
             double ToplamFiyat = 0;
-            varlik = new VarlikDAL();
-            List<Varlik> varliklar = varlik.VeriCek((cmbParaBirimi.SelectedItem as ParaBirimi).ParaBirimiAdi);
+            Varlik = new VarlikDAL();
+            List<Varlik> varliklar = Varlik.VeriCek((cmbParaBirimi.SelectedItem as ParaBirimi).ParaBirimiAdi);
             if (varliklar!=null)
             {
                 foreach (Varlik item in varliklar)

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
@@ -24,11 +17,9 @@ namespace UltiaVarlik.UI.Aksiyonlar
         PersonelZimmetDAL PersonelZimmet;
         PersonelDAL Personel;
         SirketEkipDAL SirketEkip;
-        int eklenenZimmetID;
-
-
-
+        int EklenenZimmetID;
         VarlikDepo GelenDepo;
+        GeriDonusum GeriDonus;
         public FrmZimmetAta()
         {
             InitializeComponent();
@@ -39,6 +30,11 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.varlik = varlik;
         }
 
+        /// <summary>
+        /// Zimmet atama click eventi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnZimmetAta_Click(object sender, EventArgs e)
         {
             if (TarihKontolu())
@@ -55,8 +51,8 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
                 };
                 Zimmet.VeriEkle(eklenecekZimmet);
-                eklenenZimmetID = Zimmet.IdDon();
-                ZimmetAta(eklenenZimmetID);
+                EklenenZimmetID = Zimmet.IdDon();
+                ZimmetAta(EklenenZimmetID);
             }
             else
             {
@@ -67,7 +63,11 @@ namespace UltiaVarlik.UI.Aksiyonlar
             
 
         }
-        GeriDonusum geri;
+        
+        /// <summary>
+        /// zimmeti oluşturup kullanıcıya veya ekibe atayan fonk
+        /// </summary>
+        /// <param name="eklenenZimmetID"></param>
         private void ZimmetAta(int eklenenZimmetID)
         {
             if (cmbZimmetTuru.SelectedIndex==0 )
@@ -81,8 +81,8 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
                 };
                 PersonelZimmet = new PersonelZimmetDAL();
-                 geri= PersonelZimmet.VeriEkle(eklenecekPersonelZimmet);
-                MessageBox.Show(geri.GeriDonusMesaji);
+                 GeriDonus= PersonelZimmet.VeriEkle(eklenecekPersonelZimmet);
+                MessageBox.Show(GeriDonus.GeriDonusMesaji);
 
             }
             else if (cmbZimmetTuru.SelectedIndex == 1)
@@ -95,14 +95,20 @@ namespace UltiaVarlik.UI.Aksiyonlar
                     ZimmetBitisTarihi = dtpZimmetBitis.Value
                 };
                 SirketEkipZimmet = new SirketEkipZimmetDAL();
-                geri =SirketEkipZimmet.VeriEkle(eklenecekSirketSkipZimmet);
-                MessageBox.Show(geri.GeriDonusMesaji);
+                GeriDonus =SirketEkipZimmet.VeriEkle(eklenecekSirketSkipZimmet);
+                MessageBox.Show(GeriDonus.GeriDonusMesaji);
 
             }
 
 
         }
 
+
+        /// <summary>
+        /// combo boxları doldurmak için 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmZimmetAta_Load(object sender, EventArgs e)
         {
             ZimmetNedeni = new ZimmetNedeniDAL();
@@ -113,6 +119,12 @@ namespace UltiaVarlik.UI.Aksiyonlar
 
         }
 
+
+        /// <summary>
+        /// zimmet türü değiştiğinde form başındaki comboboxun içeriğini personel veya ekip olarak değişen method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbZimmetTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbZimmetSahibi.Items.Clear();
@@ -135,6 +147,11 @@ namespace UltiaVarlik.UI.Aksiyonlar
             }
 
         }
+        
+        /// <summary>
+        /// çıkış tarihi ve giriş tarihi arasındaki farkı bakar
+        /// </summary>
+        /// <returns></returns>
         public bool TarihKontolu()
         {
 

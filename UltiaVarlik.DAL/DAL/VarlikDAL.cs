@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Linq.SqlClient;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
@@ -152,7 +148,11 @@ namespace UltiaVarlik.DAL
 
         }
 
-
+        /// <summary>
+        /// para birimine göre varlik ceken dal
+        /// </summary>
+        /// <param name="paraBirmi"></param>
+        /// <returns></returns>
         public List<Varlik> VeriCek(string paraBirmi)
         {
 

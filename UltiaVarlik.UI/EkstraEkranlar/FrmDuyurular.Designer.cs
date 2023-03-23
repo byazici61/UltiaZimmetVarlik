@@ -51,7 +51,6 @@ namespace UltiaVarlik.UI.EkstraEkranlar
             this.treeDuyuru.Name = "treeDuyuru";
             this.treeDuyuru.Size = new System.Drawing.Size(1153, 489);
             this.treeDuyuru.TabIndex = 3;
-            this.treeDuyuru.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeDuyuru_AfterSelect);
             // 
             // FrmDuyurular
             // 

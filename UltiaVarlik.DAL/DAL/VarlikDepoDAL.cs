@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
 using UltiaVarlik.Provider;
@@ -13,6 +10,11 @@ namespace UltiaVarlik.DAL.DAL
     public class VarlikDepoDAL : IVeriCekID<VarlikDepo>
     {
         List<VarlikDepo> VarlikDepolar;
+        /// <summary>
+        /// depo id ye  göre depo bilgisi çeken dal
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<VarlikDepo> VeriCek(int id)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select vd.VarlikDepoID, mm1.MarkaModelAdi,mm.MarkaModelAdi,f.ParaMiktari , pb.ParaBirimAdi from VarlikDepo vd " +
@@ -40,9 +42,15 @@ namespace UltiaVarlik.DAL.DAL
             return VarlikDepolar;
         }
         VarlikDepo VarlikDepo;
+
+        /// <summary>
+        /// bir ürünün hangi depoda olduğunu bulan dal
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public VarlikDepo DepoBul(int id)
         {
-            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select VarlikDepoID from VarlikDepo where VarlikID =5");
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi($"select VarlikDepoID from VarlikDepo where VarlikID ={id}");
 
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
