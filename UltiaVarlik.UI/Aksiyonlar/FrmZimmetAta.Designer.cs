@@ -40,7 +40,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.label5 = new System.Windows.Forms.Label();
             this.dtpZimmetBitis = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtAçiklama = new System.Windows.Forms.TextBox();
+            this.txtAciklama = new System.Windows.Forms.TextBox();
             this.btnZimmetAta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,15 +52,16 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.cmbZimmetSahibi.Name = "cmbZimmetSahibi";
             this.cmbZimmetSahibi.Size = new System.Drawing.Size(371, 27);
             this.cmbZimmetSahibi.TabIndex = 0;
+            this.cmbZimmetSahibi.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(39, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 19);
+            this.label1.Size = new System.Drawing.Size(115, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "*Zimmet Sahibi Kişi:";
+            this.label1.Text = "*Zimmet Sahibi:";
             // 
             // cmbZimmetNedeni
             // 
@@ -88,6 +89,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.cmbZimmetTuru.Name = "cmbZimmetTuru";
             this.cmbZimmetTuru.Size = new System.Drawing.Size(371, 27);
             this.cmbZimmetTuru.TabIndex = 0;
+            this.cmbZimmetTuru.SelectedIndexChanged += new System.EventHandler(this.cmbZimmetTuru_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -139,13 +141,13 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.label6.TabIndex = 2;
             this.label6.Text = "*Açıklama";
             // 
-            // txtAçiklama
+            // txtAciklama
             // 
-            this.txtAçiklama.Location = new System.Drawing.Point(39, 334);
-            this.txtAçiklama.Multiline = true;
-            this.txtAçiklama.Name = "txtAçiklama";
-            this.txtAçiklama.Size = new System.Drawing.Size(371, 106);
-            this.txtAçiklama.TabIndex = 4;
+            this.txtAciklama.Location = new System.Drawing.Point(39, 334);
+            this.txtAciklama.Multiline = true;
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.Size = new System.Drawing.Size(371, 106);
+            this.txtAciklama.TabIndex = 4;
             // 
             // btnZimmetAta
             // 
@@ -155,6 +157,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.btnZimmetAta.TabIndex = 5;
             this.btnZimmetAta.Text = "Zimmet Ata";
             this.btnZimmetAta.UseVisualStyleBackColor = true;
+            this.btnZimmetAta.Click += new System.EventHandler(this.btnZimmetAta_Click);
             // 
             // FrmZimmetAta
             // 
@@ -163,7 +166,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(443, 487);
             this.Controls.Add(this.btnZimmetAta);
-            this.Controls.Add(this.txtAçiklama);
+            this.Controls.Add(this.txtAciklama);
             this.Controls.Add(this.dtpZimmetBitis);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpZimmetBaslangic);
@@ -179,6 +182,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmZimmetAta";
             this.Text = "Zimmet Ata";
+            this.Load += new System.EventHandler(this.FrmZimmetAta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,7 +201,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpZimmetBitis;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtAçiklama;
+        private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.Button btnZimmetAta;
     }
 }

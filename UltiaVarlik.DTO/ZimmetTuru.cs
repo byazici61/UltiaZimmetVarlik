@@ -10,5 +10,9 @@ namespace UltiaVarlik.DTO
     {
         public int ZimmetTuruID { get; set; }
         public string ZimmetTuruAdi { get; set; }
+        public override string ToString()
+        {
+            return ZimmetTuruAdi;
+        }
     }
 }

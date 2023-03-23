@@ -224,7 +224,7 @@ namespace UltiaVarlik.UI
                     frmTuket.Show();
                     break;
                 case 1:
-                    FrmZimmetAta frmZimmetAta = new FrmZimmetAta();
+                    FrmZimmetAta frmZimmetAta = new FrmZimmetAta(Varliklar[0]);
                     frmZimmetAta.Show();
                     break;
                 default:

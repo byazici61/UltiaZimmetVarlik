@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltiaVarlik.DTO;
 using UltiaVarlik.UI.EkstraEkranlar;
+using UltiaVarlik.UI.RaporEkranlari;
 
 namespace UltiaVarlik.UI
 {
@@ -72,6 +73,14 @@ namespace UltiaVarlik.UI
         private void FrmGenelEkran_Load(object sender, EventArgs e)
         {
             tstxtPersonelAdSoyad.Text = GirisYapanKullanici.PersonelAdi + " " + GirisYapanKullanici.PersonelSoyadi + " Ekip : " + GirisYapanKullanici.SirketEkip.SirketEkipAdi;
+        }
+
+        private void rapor1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DepoRapor frmdepo = new DepoRapor();
+            frmdepo.MdiParent = this;
+            frmdepo.Show();
+            frmdepo.WindowState = FormWindowState.Maximized;
         }
     }
 }

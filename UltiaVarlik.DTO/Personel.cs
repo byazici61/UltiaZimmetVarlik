@@ -16,5 +16,10 @@ namespace UltiaVarlik.DTO
         public Personel YoneticiID { get; set; }
         public Rol Rol { get; set; }
         public SirketEkip SirketEkip { get; set; }
+
+        public override string ToString()
+        {
+            return PersonelAdi + " " + PersonelSoyadi;
+        }
     }
 }

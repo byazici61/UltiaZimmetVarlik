@@ -76,17 +76,11 @@
     <Compile Include="FrmVarlikGuncelle.Designer.cs">
       <DependentUpon>FrmVarlikGuncelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="RaporEkranlari\Rapor1.cs">
+    <Compile Include="RaporEkranlari\DepoRapor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RaporEkranlari\Rapor1.Designer.cs">
-      <DependentUpon>Rapor1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RaporEkranlari\Rapor2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RaporEkranlari\Rapor2.Designer.cs">
-      <DependentUpon>Rapor2.cs</DependentUpon>
+    <Compile Include="RaporEkranlari\DepoRapor.Designer.cs">
+      <DependentUpon>DepoRapor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGenelEkran.cs">
       <SubType>Form</SubType>
@@ -142,6 +136,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RaporEkranlari\DepoRapor.resx">
+      <DependentUpon>DepoRapor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

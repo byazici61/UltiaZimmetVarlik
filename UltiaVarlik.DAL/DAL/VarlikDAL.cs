@@ -125,6 +125,7 @@ namespace UltiaVarlik.DAL
 
         }
 
+        
 
         /// <summary>
         /// varlik güncelleme için varlik tipinde bir nesne alip o nesneyi db de güncelleyen DAL

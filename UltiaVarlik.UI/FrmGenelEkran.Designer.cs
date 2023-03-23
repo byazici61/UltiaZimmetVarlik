@@ -86,13 +86,14 @@ namespace UltiaVarlik.UI
             // rapor1ToolStripMenuItem
             // 
             this.rapor1ToolStripMenuItem.Name = "rapor1ToolStripMenuItem";
-            this.rapor1ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.rapor1ToolStripMenuItem.Text = "Rapor1";
+            this.rapor1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rapor1ToolStripMenuItem.Text = "Depo Raporları";
+            this.rapor1ToolStripMenuItem.Click += new System.EventHandler(this.rapor1ToolStripMenuItem_Click);
             // 
             // rapor2ToolStripMenuItem
             // 
             this.rapor2ToolStripMenuItem.Name = "rapor2ToolStripMenuItem";
-            this.rapor2ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.rapor2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rapor2ToolStripMenuItem.Text = "Rapor2";
             // 
             // duyurularToolStripMenuItem

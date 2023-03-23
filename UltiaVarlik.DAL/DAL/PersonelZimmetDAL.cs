@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UltiaVarlik.DAL.ArayuzDeposu;
 using UltiaVarlik.DTO;
+using UltiaVarlik.DTO.GeriDonusTipi;
 using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL.DAL
 {
-    public class PersonelZimmetDAL : IVeriCekID<PersonelZimmet>
+    public class PersonelZimmetDAL : IVeriCekID<PersonelZimmet>,IVeriEkle<PersonelZimmet>
     {
         List<PersonelZimmet> Zimmetler;
 
@@ -58,6 +59,26 @@ namespace UltiaVarlik.DAL.DAL
                 
             }
             return Zimmetler;
+        }
+
+        public GeriDonusum VeriEkle(PersonelZimmet eklenecekVeri)
+        {
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into PersonelZimmet(PersonelID,ZimmetID,BaslangicTarihi,BitisTarihi,AktifMi)values(@personelid,@zimmetid,@bastarih,@bittarih,@aktifmi)");
+            List<SqlParameter> parametreListem = new List<SqlParameter>();
+            parametreListem.Add(new SqlParameter("@personelid", eklenecekVeri.Personel.PersonelID));
+            parametreListem.Add(new SqlParameter("@zimmetid", eklenecekVeri.Zimmet.ZimmetID));
+            parametreListem.Add(new SqlParameter("@bastarih", eklenecekVeri.ZimmetBaslangicTarihi));
+            parametreListem.Add(new SqlParameter("@bittarih", eklenecekVeri.ZimmetBitisTarihi));
+            parametreListem.Add(new SqlParameter("@aktifmi", true));
+            con.ParametreEkle(parametreListem.ToArray());
+            int etkilenenSatirSayisi = con.ExcecuteNon();
+
+            return new GeriDonusum()
+            {
+                GeriDonus = etkilenenSatirSayisi,
+                GeriDonusMesaji = etkilenenSatirSayisi > 0 ? "Yeni Zimmet Oluşturuldu" : "Zimmet Oluşturulamadi",
+                GeriDonusTipi = etkilenenSatirSayisi > 0
+            };
         }
     }
 
