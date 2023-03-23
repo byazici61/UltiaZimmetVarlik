@@ -95,6 +95,7 @@ namespace UltiaVarlik.UI.RaporEkranlari
             this.Controls.Add(this.cmbDepo);
             this.Controls.Add(this.lvDepo);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DepoRapor";
             this.Text = "DepoRapor";

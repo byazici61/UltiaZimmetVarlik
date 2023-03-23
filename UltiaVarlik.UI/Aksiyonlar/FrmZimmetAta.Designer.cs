@@ -46,6 +46,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             // 
             // cmbZimmetSahibi
             // 
+            this.cmbZimmetSahibi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbZimmetSahibi.FormattingEnabled = true;
             this.cmbZimmetSahibi.Location = new System.Drawing.Point(39, 36);
             this.cmbZimmetSahibi.Margin = new System.Windows.Forms.Padding(4);
@@ -65,6 +66,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             // 
             // cmbZimmetNedeni
             // 
+            this.cmbZimmetNedeni.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbZimmetNedeni.FormattingEnabled = true;
             this.cmbZimmetNedeni.Location = new System.Drawing.Point(39, 95);
             this.cmbZimmetNedeni.Margin = new System.Windows.Forms.Padding(4);
@@ -83,6 +85,7 @@ namespace UltiaVarlik.UI.Aksiyonlar
             // 
             // cmbZimmetTuru
             // 
+            this.cmbZimmetTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbZimmetTuru.FormattingEnabled = true;
             this.cmbZimmetTuru.Location = new System.Drawing.Point(39, 153);
             this.cmbZimmetTuru.Margin = new System.Windows.Forms.Padding(4);

@@ -24,7 +24,7 @@ namespace UltiaVarlik.DAL.DAL
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("select f.FiyatID, f.ParaMiktari,p.ParaBirimiID,p.ParaBirimAdi " +
                 "from Fiyat f  " +
                 "inner join ParaBirimi p on f.ParaBirimiID = p.ParaBirimiID " +
-                $"where f.AktifMi = 'True' and f.VarlikID = {id}");
+                $"where f.AktifMi = 'True' and f.VarlikID = {id} and f.AktifMi='True'");
             //con.BaglantiAc();
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
@@ -57,7 +57,7 @@ namespace UltiaVarlik.DAL.DAL
         public GeriDonusum VeriEkle(Fiyat eklenecekVeri)
         {
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("insert into Fiyat(VarlikID,ParaMiktari,GuncellemeTarihi,ParaBirimiID,AktifMi) " +
-                "-Values(@varlikid,@paramiktari,@tarih,@birimi,@aktifmi)");
+                "Values(@varlikid,@paramiktari,@tarih,@birimi,@aktifmi)");
             List<SqlParameter> parametreListem = new List<SqlParameter>();
             parametreListem.Add(new SqlParameter("@varlikid", eklenecekVeri.Varlik.VarlikID));
             parametreListem.Add(new SqlParameter("@paramiktari", eklenecekVeri.ParaMiktari));

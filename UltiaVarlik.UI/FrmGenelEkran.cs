@@ -82,5 +82,13 @@ namespace UltiaVarlik.UI
             frmdepo.Show();
             frmdepo.WindowState = FormWindowState.Maximized;
         }
+
+        private void ParaRaporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ParaBirimiRapor frmparaBirimiRapor = new ParaBirimiRapor();
+            frmparaBirimiRapor.MdiParent = this;
+            frmparaBirimiRapor.Show();
+            frmparaBirimiRapor.WindowState = FormWindowState.Maximized;
+        }
     }
 }

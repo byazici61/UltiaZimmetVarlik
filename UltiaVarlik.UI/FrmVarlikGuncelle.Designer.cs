@@ -55,13 +55,13 @@ namespace UltiaVarlik.UI
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiyatParaBirimi = new System.Windows.Forms.ComboBox();
             this.cmbGaranti = new System.Windows.Forms.ComboBox();
-            this.cmbModel = new System.Windows.Forms.ComboBox();
             this.cmbMaliyetParaBirimi = new System.Windows.Forms.ComboBox();
             this.cmbMarka = new System.Windows.Forms.ComboBox();
             this.cmbUrunTipi = new System.Windows.Forms.ComboBox();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.cmbAksiyonlar = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.cmbModel = new System.Windows.Forms.ComboBox();
             this.pbBilgiler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAdet)).BeginInit();
             this.SuspendLayout();
@@ -94,8 +94,8 @@ namespace UltiaVarlik.UI
             this.pbBilgiler.Controls.Add(this.label1);
             this.pbBilgiler.Controls.Add(this.cmbFiyatParaBirimi);
             this.pbBilgiler.Controls.Add(this.cmbGaranti);
-            this.pbBilgiler.Controls.Add(this.cmbModel);
             this.pbBilgiler.Controls.Add(this.cmbMaliyetParaBirimi);
+            this.pbBilgiler.Controls.Add(this.cmbModel);
             this.pbBilgiler.Controls.Add(this.cmbMarka);
             this.pbBilgiler.Controls.Add(this.cmbUrunTipi);
             this.pbBilgiler.Controls.Add(this.txtBarkod);
@@ -338,6 +338,7 @@ namespace UltiaVarlik.UI
             // 
             // cmbFiyatParaBirimi
             // 
+            this.cmbFiyatParaBirimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFiyatParaBirimi.FormattingEnabled = true;
             this.cmbFiyatParaBirimi.Location = new System.Drawing.Point(496, 301);
             this.cmbFiyatParaBirimi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -347,6 +348,7 @@ namespace UltiaVarlik.UI
             // 
             // cmbGaranti
             // 
+            this.cmbGaranti.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGaranti.FormattingEnabled = true;
             this.cmbGaranti.Items.AddRange(new object[] {
             "Hayır",
@@ -356,16 +358,6 @@ namespace UltiaVarlik.UI
             this.cmbGaranti.Name = "cmbGaranti";
             this.cmbGaranti.Size = new System.Drawing.Size(304, 24);
             this.cmbGaranti.TabIndex = 2;
-            // 
-            // cmbModel
-            // 
-            this.cmbModel.Enabled = false;
-            this.cmbModel.FormattingEnabled = true;
-            this.cmbModel.Location = new System.Drawing.Point(29, 248);
-            this.cmbModel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cmbModel.Name = "cmbModel";
-            this.cmbModel.Size = new System.Drawing.Size(304, 24);
-            this.cmbModel.TabIndex = 2;
             // 
             // cmbMaliyetParaBirimi
             // 
@@ -435,6 +427,17 @@ namespace UltiaVarlik.UI
             this.label16.TabIndex = 2;
             this.label16.Text = "Aksiyonlar:";
             // 
+            // cmbModel
+            // 
+            this.cmbModel.Enabled = false;
+            this.cmbModel.FormattingEnabled = true;
+            this.cmbModel.Location = new System.Drawing.Point(29, 246);
+            this.cmbModel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmbModel.Name = "cmbModel";
+            this.cmbModel.Size = new System.Drawing.Size(304, 24);
+            this.cmbModel.TabIndex = 2;
+            this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbMarka_SelectedIndexChanged);
+            // 
             // FrmVarlikGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -469,7 +472,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbGaranti;
-        private System.Windows.Forms.ComboBox cmbModel;
         private System.Windows.Forms.ComboBox cmbMarka;
         private System.Windows.Forms.ComboBox cmbUrunTipi;
         private System.Windows.Forms.TextBox txtBarkod;
@@ -493,5 +495,6 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ComboBox cmbAksiyonlar;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox cbBarkod;
+        private System.Windows.Forms.ComboBox cmbModel;
     }
 }

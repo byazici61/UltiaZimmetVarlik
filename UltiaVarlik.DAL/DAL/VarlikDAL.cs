@@ -12,7 +12,7 @@ using UltiaVarlik.Provider;
 
 namespace UltiaVarlik.DAL
 {
-    public class VarlikDAL : IVeriCek<Varlik>, IVeriCekID<Varlik> , IVeriDuzenle<Varlik>
+    public class VarlikDAL : IVeriCek<Varlik>, IVeriCekID<Varlik>, IVeriDuzenle<Varlik>
     {
         List<Varlik> Varliklar;
 
@@ -45,15 +45,15 @@ namespace UltiaVarlik.DAL
                         varlik.Barkot = rdr.GetGuid(1);
 
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         varlik.Barkot = Guid.Empty;
                     }
                     varlik.VarlikGrubu = new VarlikGrubu() { VarlikGrubuAdi = rdr.GetString(2) };
-                    varlik.MarkaModel = new MarkaModel() { MarkaModeAdi = rdr.GetString(3)+ " "+rdr.GetString(4) };
+                    varlik.MarkaModel = new MarkaModel() { MarkaModeAdi = rdr.GetString(3) + " " + rdr.GetString(4) };
                     varlik.Fiyat = Convert.ToDouble(rdr.GetDecimal(5));
 
-                   
+
                     Varliklar.Add(varlik);
 
                 }
@@ -61,8 +61,8 @@ namespace UltiaVarlik.DAL
             }
             con.BaglantiKapat();
             return Varliklar;
-               
-           
+
+
         }
 
 
@@ -83,8 +83,8 @@ namespace UltiaVarlik.DAL
                 "inner join ParaBirimi pb1 on fy.ParaBirimiID = pb1.ParaBirimiID " +
                 "inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID " +
                 "inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID " +
-                $"where v.VarlikID = {id}");
-        
+                $"where v.VarlikID = {id} and fy.AktifMi='true'");
+
             SqlDataReader rdr = con.ExcuteRedaer();
             if (rdr.HasRows)
             {
@@ -99,16 +99,16 @@ namespace UltiaVarlik.DAL
                         varlik.Barkot = rdr.GetGuid(1);
 
                     }
-                    catch (Exception )
-                    { 
+                    catch (Exception)
+                    {
                         varlik.Barkot = Guid.Empty;
                         varlik.Birim = new Birim() { BirimID = rdr.GetInt32(2), BirimAdi = rdr.GetString(3) };
                         varlik.Miktar = Convert.ToInt32(rdr.GetDecimal(16));
                     }
-                    
+
                     varlik.VarlikGrubu = new VarlikGrubu() { VarlikGrubuID = rdr.GetInt32(4), VarlikGrubuAdi = rdr.GetString(5) };
                     varlik.MarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(8), MarkaModeAdi = rdr.GetString(9), UstMarkaModel = new MarkaModel() { MarkaModelID = rdr.GetInt32(6), MarkaModeAdi = rdr.GetString(7) } };
-                    varlik.GarantiliMi = (rdr.GetString(10) == "Var" );
+                    varlik.GarantiliMi = (rdr.GetString(10) == "Var");
                     varlik.CikisTarihi = rdr.GetDateTime(11);
                     varlik.Aciklama = rdr.GetString(12);
                     varlik.MaliyetFiyati = Convert.ToDouble(rdr.GetDecimal(13));
@@ -125,7 +125,7 @@ namespace UltiaVarlik.DAL
 
         }
 
-        
+
 
         /// <summary>
         /// varlik güncelleme için varlik tipinde bir nesne alip o nesneyi db de güncelleyen DAL
@@ -137,7 +137,7 @@ namespace UltiaVarlik.DAL
             MSSQLSaglayicisi con = new MSSQLSaglayicisi("update Varlik set GarantiliMi=@garanti , Aciklama=@aciklama  where VarlikID =@varlikid");
             List<SqlParameter> parametreListem = new List<SqlParameter>();
             parametreListem.Add(new SqlParameter("@garanti", duzenlenecekVeri.GarantiliMi));
-            parametreListem.Add(new SqlParameter("@aciklama", duzenlenecekVeri.Aciklama ));
+            parametreListem.Add(new SqlParameter("@aciklama", duzenlenecekVeri.Aciklama));
             parametreListem.Add(new SqlParameter("@varlikid", duzenlenecekVeri.VarlikID));
             con.ParametreEkle(parametreListem.ToArray());
             int etkilenenSatirSayisi = con.ExcecuteNon();
@@ -145,9 +145,44 @@ namespace UltiaVarlik.DAL
             return new GeriDonusum()
             {
                 GeriDonus = etkilenenSatirSayisi,
-                GeriDonusMesaji = etkilenenSatirSayisi > 0 ? "Varlık Başarıyla Guncelelndi" : "Varlık Güncellenemedi",
+                GeriDonusMesaji = etkilenenSatirSayisi > 0 ? "Varlık Başarıyla Guncelendi" : "Varlık Güncellenemedi",
                 GeriDonusTipi = etkilenenSatirSayisi > 0
             };
+
+
+        }
+
+
+        public List<Varlik> VeriCek(string paraBirmi)
+        {
+
+
+            MSSQLSaglayicisi con = new MSSQLSaglayicisi("select mm1.MarkaModelAdi,mm.MarkaModelAdi,vg.VarlikGrubuAdi,f.ParaMiktari from Varlik v " +
+                "inner join MarkaModel mm on v.MarkaModelID = mm.MarkaModelID " +
+                "inner join MarkaModel mm1 on mm.UstMarkaModelID = mm1.MarkaModelID " +
+                "inner join Fiyat f on f.VarlikID = v.VarlikID " +
+                "inner join ParaBirimi pb on f.ParaBirimiID = pb.ParaBirimiID " +
+                "inner join VarlikGrubu vg on v.VarlikGrubuID = vg.VarlikGrubuID "+ 
+                $"where pb.ParaBirimAdi = '{paraBirmi}' and f.AktifMi = 'True'");
+            
+            SqlDataReader rdr = con.ExcuteRedaer();
+            if (rdr.HasRows)
+            {
+                Varliklar = new List<Varlik>();
+
+                while (rdr.Read())
+                {
+                    Varlik varlik = new Varlik();
+                    varlik.MarkaModel = new MarkaModel() { MarkaModeAdi = rdr.GetString(0) + " " + rdr.GetString(1) };
+                    varlik.VarlikGrubu = new VarlikGrubu() { VarlikGrubuAdi = rdr.GetString(2) };
+                    varlik.Fiyat = Convert.ToDouble(rdr.GetDecimal(3));
+                    Varliklar.Add(varlik);
+
+                }
+
+            }
+            con.BaglantiKapat();
+            return Varliklar;
 
 
         }

@@ -34,7 +34,7 @@ namespace UltiaVarlik.UI
             this.varliklariGosterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rapor1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rapor2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ParaRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.duyurularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sikcaSorulanSorularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -78,7 +78,7 @@ namespace UltiaVarlik.UI
             // 
             this.raporlamaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rapor1ToolStripMenuItem,
-            this.rapor2ToolStripMenuItem});
+            this.ParaRaporToolStripMenuItem});
             this.raporlamaToolStripMenuItem.Name = "raporlamaToolStripMenuItem";
             this.raporlamaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.raporlamaToolStripMenuItem.Text = "Raporlama";
@@ -90,11 +90,13 @@ namespace UltiaVarlik.UI
             this.rapor1ToolStripMenuItem.Text = "Depo Raporları";
             this.rapor1ToolStripMenuItem.Click += new System.EventHandler(this.rapor1ToolStripMenuItem_Click);
             // 
-            // rapor2ToolStripMenuItem
+            // ParaRaporToolStripMenuItem
             // 
-            this.rapor2ToolStripMenuItem.Name = "rapor2ToolStripMenuItem";
-            this.rapor2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.rapor2ToolStripMenuItem.Text = "Rapor2";
+            this.ParaRaporToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.ParaRaporToolStripMenuItem.Name = "ParaRaporToolStripMenuItem";
+            this.ParaRaporToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ParaRaporToolStripMenuItem.Text = "Para Birimi Raporu";
+            this.ParaRaporToolStripMenuItem.Click += new System.EventHandler(this.ParaRaporToolStripMenuItem_Click);
             // 
             // duyurularToolStripMenuItem
             // 
@@ -172,7 +174,7 @@ namespace UltiaVarlik.UI
         private System.Windows.Forms.ToolStripMenuItem varliklariGosterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporlamaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rapor1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rapor2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ParaRaporToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem duyurularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sikcaSorulanSorularToolStripMenuItem;
         public System.Windows.Forms.ToolStripTextBox tstxtPersonelAdSoyad;

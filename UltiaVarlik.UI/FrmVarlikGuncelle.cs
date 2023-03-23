@@ -11,6 +11,7 @@ using UltiaVarlik.DAL;
 using UltiaVarlik.DAL.DAL;
 using UltiaVarlik.DTO;
 using UltiaVarlik.DTO.GeriDonusTipi;
+using UltiaVarlik.Provider;
 using UltiaVarlik.UI.Aksiyonlar;
 
 namespace UltiaVarlik.UI
@@ -29,10 +30,10 @@ namespace UltiaVarlik.UI
 
         List<Fiyat> Fiyatlar;
         List<ParaBirimi> ParaBirimleri;
-        //List<VarlikGrubu> varlikGrublari;
+        List<VarlikGrubu> varlikGrublari;
         List<Varlik> Varliklar;
         List<MarkaModel> MarkalarModeller;
-        //List<Birim> birimler;
+        List<Birim> birimler;
 
         public FrmVarlikGuncelle()
         {
@@ -79,9 +80,9 @@ namespace UltiaVarlik.UI
             }
             
             ParaBirimleri = ParaBirimi.VeriCek();
-            //varlikGrublari = VarlikGrubu.VeriCek();
+            varlikGrublari = VarlikGrubu.VeriCek();
             MarkalarModeller = Marka.VeriCek();
-            //birimler = Birim.VeriCek();
+            birimler = Birim.VeriCek();
           
             txtFiyat.Text = Fiyatlar[0].ParaMiktari.ToString();
             cmbFiyatParaBirimi.Items.AddRange(ParaBirimleri.ToArray());
@@ -105,6 +106,7 @@ namespace UltiaVarlik.UI
             cmbUrunTipi.Text = Varliklar[0].VarlikGrubu.VarlikGrubuAdi;
             cmbMarka.SelectedItem = Varliklar[0].MarkaModel.UstMarkaModel;
             cmbMarka.Text = Varliklar[0].MarkaModel.UstMarkaModel.MarkaModeAdi;
+            cmbModel.SelectedItem = Varliklar[0].MarkaModel;
             cmbModel.Text = Varliklar[0].MarkaModel.MarkaModeAdi;
             cmbGaranti.SelectedIndex = (Varliklar[0].GarantiliMi == true ? 1 : 0);
             dtpGiris.Value = Varliklar[0].CikisTarihi;
@@ -187,24 +189,32 @@ namespace UltiaVarlik.UI
         /// <param name="e"></param>
         public void VarlikGuncelle()
         {
-            Varlik düzenleneceVarlik = new Varlik()
+            if (txtFiyat.Text.DoubleKontorlu())
             {
-                Aciklama = txtAciklama.Text,
-                GarantiliMi = cmbGaranti.SelectedIndex == 1 ? true : false,
-                VarlikID = Varliklar[0].VarlikID
+                Varlik düzenleneceVarlik = new Varlik()
+                {
+                    Aciklama = txtAciklama.Text,
+                    GarantiliMi = cmbGaranti.SelectedIndex == 1 ? true : false,
+                    VarlikID = Varliklar[0].VarlikID
 
-            };
-            Fiyat eklenecekFiyat = new Fiyat()
+                };
+                Fiyat eklenecekFiyat = new Fiyat()
+                {
+                    ParaMiktari = double.Parse(txtFiyat.Text),
+                    ParaBirimi = new ParaBirimi() { ParaBirimiID = (cmbFiyatParaBirimi.SelectedItem as ParaBirimi).ParaBirimiID },
+                    Varlik = new Varlik() { VarlikID = Varliklar[0].VarlikID }
+                };
+                Varlik = new VarlikDAL();
+                Fiyat = new FiyatDAL();
+                GeriDonusum g1 = Varlik.VeriDuzenle(düzenleneceVarlik);
+                GeriDonusum g2 = Fiyat.VeriEkle(eklenecekFiyat);
+                MessageBox.Show(g1.GeriDonusMesaji + "\n" + g2.GeriDonusMesaji);
+            }
+            else
             {
-                ParaMiktari = double.Parse(txtFiyat.Text),
-                ParaBirimi = new ParaBirimi() { ParaBirimiID = (cmbFiyatParaBirimi.SelectedItem as ParaBirimi).ParaBirimiID },
-                Varlik = new Varlik() { VarlikID = Varliklar[0].VarlikID }
-            };
-            Varlik = new VarlikDAL();
-            Fiyat = new FiyatDAL();
-            GeriDonusum g1 = Varlik.VeriDuzenle(düzenleneceVarlik);
-            GeriDonusum g2 = Fiyat.VeriEkle(eklenecekFiyat);
-            MessageBox.Show(g1.GeriDonusMesaji + " " + g2.GeriDonusMesaji);
+                MessageBox.Show("Fiyat Bölümüne Lütfen Yanlızca Rakam Giriniz");
+            }
+            
 
 
         }

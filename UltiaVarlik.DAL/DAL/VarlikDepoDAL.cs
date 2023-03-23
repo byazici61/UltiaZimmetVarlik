@@ -42,4 +42,3 @@ namespace UltiaVarlik.DAL.DAL
 
     }
 }
--
